@@ -5,9 +5,9 @@
 [![slack](https://img.shields.io/badge/slack-CodeandoMexico-EC0E4F.svg)](http://slack.codeandomexico.org/)
 
 
-# Guía y plantilla para proyectos de Codeando México
+# MapMap
 
-Este repositorio es una plantilla con la **estructura** que utilizamos para documentar nuestros proyectos en Codeando. Si estás haciendo un proyecto de tecnología cívica puedes tomarla de guía o simplemente usar lo que necesites.
+MapMap es un kit de código abierto para el mapeo de rutas de transporte público.
 
 ## Índice
 
@@ -24,116 +24,103 @@ Este repositorio es una plantilla con la **estructura** que utilizamos para docu
   - [[Carpeta] Docs](#carpeta-docs)
   - [[Carpeta] Recursos](#carpeta-recursos)
 
-## Nombre del repositorio
+## Problemática
 
-El nombre de nuestros repositorios está en español porque queremos ver más contenido en nuestro idioma. Si el nombre de tu proyecto tiene más de una palabra, es buena práctica que esté en minúsculas y separadas por guiones.
+En un gran porcentaje de las ciudades latinoamericanas el transporte público se brinda a través de concesiones por medio del sector privado, esto implica un desconocimiento del número de concesiones que transitan por las ciudades, los itinerarios son irregulares así como las rutas por donde circulan los camiones. El no conocer las rutas genera un serio problema para la movilidad de las personas y la administración pública al no lograr gestionar adecuadamente el transporte público de una ciudad.
 
-- ✅ estandar-datos-legislativos, aprende-con-datos, guia-participacion-digital.
-- ❌ BlockchainForTheWin, OTRA_APP_DE_RAILS
+## Descripción
 
-## [Archivo] Readme
+MapMap es un kit de mapeo de transporte público. El proyecto consiste en:
+* Una aplicación móvil para Android
+* Una aplicación de servidor
 
-- ‼️ En nuestros proyectos este archivo es obligatorio.
-- ℹ️ Este archivo debe llamarse README.md o LEEME.md y estar en la carpeta raíz del proyecto.
+Este proyecto es una versión modernizada del proyecto [MapMap](https://github.com/codeandoxalapa/mapmap) originalmente desarrollado por Codeando Xalapa en el marco del [Mapatón Xalapa 2016](https://mapaton.org/mapaton-ciudadano-xalapa/). En este repositorio está una nueva versión con algunos ajustes, mejoras y corrección de errores.
 
-El archivo Readme contiene la información básica del proyecto. El archivo que estás leyendo ahora mismo es el Readme de este repositorio, y lo puedes tomar como referencia o ver el uso de los logos. Nuestros Readme contienen las siguientes secciones:
+Con el tiempo el proyecto MapMap se ha usado en mapatones en diferentes partes de México (Veracruz, Michoacán, Baja California Sur) y otros países (Ecuador, Colombia, República Dominicana), y en el proceso se identificaron mejoras y correcciones que era necesario realizar, además de la necesidad de actualizar el stack tecnológico del proyecto para facilitar su mantenimiento y mejorar su estabilidad.
+
+Para más información del proyecto original consultar el [respositorio original](https://github.com/codeandoxalapa/mapmap) del proyecto.
 
 
-1. Nombre del proyecto
-2. Descripción del proyecto en un tuit
-3. Acerca de: Describe en un máximo de 2 párrafos cortos el problema que buscas resolver
-4. Cómo comenzar: Describe como descargar, instalar y ejecutar. Si las instrucciones de instalación son extensas, puedes poner un resumen y enlazar a un manual de instalación.
-5. Cómo contribuir: Instrucciones para contribuir al proyecto, se enlaza al archivo 
-6. Créditos: Quién mantiene y ha contribuido al proyecto 
-7. Referencias
-8. Código de conducta: Enlace a nuestro código de conducta
-9. Licencia: Menciona la licencia utilizada y enlaza al archivo con la licencia completa
 
-### [Sección] Créditos
+## Aplicación móvil
 
-- ‼️ Esta sección es obligatoria en nuestros proyectos
+Mediante la aplicación móvil es posible capturar trazos georeferenciados sin la necesidad de consumir datos del dispositivo móvil. La información que se recolecta a través de la aplicación es la siguiente:
 
-Nuestra comunidad se basa en la colaboración, con personas de varios perfiles, instituciones, colectivos, movimientos. En tu sección de créditos menciona a quienes colaboraron en tu proyecto.
-Antes de incluir su nombre y contacto, es bueno preguntarle a la persona si quiere aparecer.
+- Conteo de pasajeros (subida y bajada de usuarios en las paradas).
+- Puntos que marcan las paradas por donde se detiene el transporte público.
+- Línea de trazo que identifica una ruta.
+- Tiempo inicial y final del recorrido.
+- Fotografía del transporte público que realiza la ruta.
 
-### [Sección] Referencias
+### Tecnología
 
-- ❗️Esta sección es opcional de acuerdo al proyecto.
+* Android 9 (sdk 28)
+* Java 11
+* Android Studio (recomendado)
 
-Cuando uses metodologías de trabajo o contenido desarrollado por otras personas u organizaciones, puedes mencionarlo en esta sección. Por ejemplo: si usaste otro proyecto como referencia, documentos, otras ideas, etc.
+## Aplicación de servidor
 
-### [Sección] Código de conducta
+La aplicación de servidor sirve para:
+* Recibir los datos recabados mediante la aplicación móvil
+* Visualizar las rutas en un mapa web
+* Descargar las rutas en formatos Shapefile y CSV
 
-- ‼️ Esta sección es obligatoria en nuestros proyectos
-- ℹ️ En caso de agregarlo como archivo debe llamarse CODE_OF_CONDUCT.md o CODIGO_DE_CONDUCTA.md y residir en la carpeta raíz del proyecto
+### Tecnología
 
-El código de conducta nos permite crear espacios seguros y positivos para todas las personas que participan en el proyecto.
+* Java 11 en adelante
+* Spring Boot 3
 
-La última versión de nuestro [código de conducta](https://github.com/CodeandoMexico/comunidad/blob/master/CODIGO-DE-CONDUCTA.md) se encuentra en el [repositorio de Comunidad](https://github.com/CodeandoMexico/comunidad) y enlazamos directamente a él. Si tu proyecto es abierto, es bueno que establezcas un código de conducta, puedes usar el nuestro como referencia o aquí puedes consultar otras opciones:
+### Metodología de mapeo
 
-* [Código de conducta convenido para contribuyentes](https://www.contributor-covenant.org/es/version/2/0/code_of_conduct/) (Contributors Covenant)
-* [Geek Feminism](https://geekfeminismdotorg.wordpress.com/about/code-of-conduct/) 🇬🇧
-* [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) 🇬🇧
-* [MediaWiki](https://www.mediawiki.org/wiki/Code_of_Conduct) 🇬🇧
-* [Tactical Tech](https://cdn.ttc.io/s/tacticaltech.org/Code_of_conduct_2021.pdf) 🇬🇧
+<strong>MapMap</strong> fue utilizada en el ejercicio del <a href="https://mapaton.org" target="_blank">Mapatón Ciudadano</a>, esté mapeo colaborativo realizado en el ciudad de Xalapa dió como resultado una propuesta metodológica para realizar el trazado de rutas de transporte público en <strong>cualquier ciudad que quiera implementarlo</strong>, se divide en 3 apartados:<br><br>
+1. <strong>Previo al Trazado</strong><br>
+ <code>1.1.</code> Tener identificado brigadistas (personas que harán el trazado).<br>
+ <code>1.2.</code> Tener un primer acercamiento con checadores y choferes, desde los puntos más importantes que concentran rutas.<br>
+ <code>1.3.</code> Identificar los puntos de inicio y fin.<br>
+ <code>1.4.</code> Mapear las rutas en papel (fieldpapers.org), en la medida de lo posible.<br>
+ <code>1.5.</code> Verificar si en los periodos de tiempo en lo que se quiere realizar el trazado se van a presentar eventos extraordinarios.<br>
+ <code>1.6.</code> Identificar las zonas geográficas.<br>
+ <code>1.7.</code> Organizar brigadas de voluntarios por zonas y rutas.<br>
+ <code>1.8.</code> Asignar líderes a la brigadas de voluntarios.<br>
+ <code>1.9.</code> Probar MapMap en una ruta seleccionada antes de iniciar el proceso.<br>
+ <code>1.10.</code> Capacitar a las brigadas de voluntarios (ver manual de usuario).<br>
+ <code>1.11.</code> dentificar horarios y días en los que hay disponibilidad el servicio de transporte público.<br><br>
+2. <strong>Durante el Trazado</strong><br>
+ <code>2.1.</code> Organizar las brigadas de voluntarios por parejas.<br>
+ <code>2.2.</code> Cubrir todas las rutas.<br>
+ <code>2.3.</code> Realizar y repetir el trazado de ruta.<br>
+ <code>2.4.</code> Los líderes de brigadas deben estar en contacto con sus brigadas de voluntarios.<br>
+ <code>2.5.</code> Reportar el progreso del trazado por parte de los brigadistas voluntarios a los líderes de brigada.<br><br>
+3. <strong>Posterior al Trazado</strong><br>
+ <code>3.1.</code> Recopilar la información resultado del trazado en el repositorio.<br>
+ <code>3.2.</code> Las brigadas de voluntarios deben informar a sus líderes que concluyeron el proceso de trazado.<br>
+ <code>3.3.</code> Los líderes deben llevar un registro de la zonas y rutas a su cargo que han sido trazadas por completo.<br>
+ <code>3.4.</code> La información deben ser verificada y contrastada con la cartografía de la zona geográfica que fue trazada.<br><br>
+> Existe una versión extendida de la metodología la cual se puede ver en: <a href="https://mapaton.org">mapaton.org</a>.
 
-## [Archivo] Licencia de uso
 
-- ‼️ Este archivo es obligatorio en nuestros proyectos
-- ℹ️ Este archivo debe llamarse LICENSE o LICENCIA y estar en la carpeta raíz del proyecto
+### Autores:
 
-A diferencia del software propietario, como por ejemplo Microsoft Word, nuestros proyectos son de [software libre](https://www.gnu.org/philosophy/free-sw.es.html). Esto quiere decir que publicamos los proyectos con una licencia que permite su copia, uso, modificación y redistribución sin limitaciones.
+#### Codeando Xalapa
 
-En algunos casos, un proyecto puede estar basado en otros proyectos o librerías de terceros, por es necesario revisar las licencias de estos proyectos o librerías para no incurrir en una violación de lo que ya establecieron.
+* [Rolando Drouaillet Pumarino](https://github.com/rdrouaillet)
+* [Juan Manuel Becerril del Toro](https://github.com/jmbecerril)
+* Elizabeth Montenegro Ñeco
+* Elías Martín Sánchez Jímenez
+* [Abraham Toriz Cruz](https://github.com/categulario)
 
-Por ejemplo, el proyecto [Decidim Monterrey](https://github.com/CodeandoMexico/decidim-monterrey/) está basado en el proyecto [Decidim](https://github.com/decidim/decidim), y este se publica bajo la licencia GNU Affero General Public License v3.0, la cual especifica que si usas Decidim, tu proyecto debe ser liberado bajo la misma licencia.
+#### Codeando México
 
-Estos son algunos ejemplos de licencias que hemos usado en nuestros proyectos:
-* [MIT](https://opensource.org/licenses/MIT)
-* [GNU Affero General Public License v3.0](https://choosealicense.com/licenses/agpl-3.0/)
-* [Creative Commons Attribution Share Alike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
+* [Óscar Hernández](https://github.com/oxcar)
 
-Si no sabes muy bien qué licencia elegir para tu proyecto, [esta herramienta](https://choosealicense.com/appendix/) puede ser de ayuda.
 
-## [Archivo] Cómo contribuir al proyecto
+### Licencia
+Licencia MIT [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-- ‼️ Este archivo es obligatorio en nuestros proyectos
-- ℹ️ Este archivo debe llamarse CONTRIBUTING.md o CONTRIBUYE.md y residir en la carpeta raíz del proyecto
 
-Trabajamos en abierto y por tanto es importante especificar de qué manera se puede colaborar. Estas instrucciones se especifican en un archivo que se llama CONTRIBUTING.md o CONTRIBUYE.md
+### Agradecimiento
 
-Algunos ejemplos de referencia:
-
-* [Estándar de datos legislativos](https://github.com/CodeandoMexico/estandar-datos-legislativos/blob/master/CONTRIBUTING.md)
-* [Decidim Monterrey](https://github.com/CodeandoMexico/decidim-monterrey/blob/main/CONTRIBUTING.md)
-
-## [Archivo] Hacklog
-
-- ❗️ Este archivo es opcional en nuestros proyectos
-- ℹ️ Este archivo debe llamarse HACKLOG.md o BITACORA.md y residir en la carpeta raíz del proyecto
-
-Es buena práctica ir documentando los milestones, el contexto y los avances del proyecto en un archivo (HACKLOG.md). Esto permite que las distintas personas que colaboran en un proyecto puedan tener un lugar en donde de manera rápida y sencilla puedan entender qué objetivos, avances y cambios han ocurrido. 
-
-Otra buena práctica es documentar las tareas o issues que se estén trabajando haciendo uso de la herramienta de issues de GitHub.
-
-## [Carpeta] Docs
-
-- ‼️ Esta carpeta es obligatoria en nuestros proyectos
-- ℹ️ Esta carpeta debe llamarse `docs`
-
-La documentación del proyecto debe vivir en el mismo repositorio que el código. Los documentos que dan contexto o información adicional sobre el proyecto deben estar bajo esta carpeta. Pueden ser archivos markdown, word, pdf o txt. 
-
-Algunos ejemplos de documentos que pueden existir en esta carpeta: 
-* Documentación extendida sobre la instalación del proyecto (i.e. un manual de instalación)
-* Legislación en la que está basada el proyecto (i.e. reglamento de participación ciudadana)
-* Documentos de contexto (i.e. la forma en la que se distritó una ciudad para un proyecto)
-
-## [Carpeta] Recursos
-
-- ‼️ Esta carpeta es OBLIGATORIA
-- ℹ️ Esta carpeta debe llamarse `recursos`
-
-Todos los recursos gráficos (logos, banners, etc) o fotografías deben de ir en la carpeta de recursos.
+Agradecemos a todos los miembros que pertenecen a la comunidad de <a href="http://codeandoxalapa.org/">Codeando Xalapa</a> por contribuir en este proyecto. También agradecemos al proyecto [TransitWand](https://github.com/conveyal/transit-wand) por haber creado la aplicación móvil que sirvió como base para construir <strong>MapMap</strong>.
 
 ---
 
