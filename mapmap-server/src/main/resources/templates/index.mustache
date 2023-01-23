@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="shortcut icon" type="image/png" href="https://mapaton.org/rutas/libs/images/favicon.png"/>
+    <link rel="stylesheet" href="/javascripts/leaflet.css"/>
+    <link rel="stylesheet" href="javascripts/lib/leaflet.label/leaflet.label.css"/>
+    <link rel="stylesheet" href="bootstrap/boostrap.select2/select2.css"/>
+    <link rel="stylesheet" href="ui-lightness/jquery-ui-1.8.23.custom.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-timepicker.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="https://mapaton.org/libs/css/style.css">
+    <link rel="stylesheet" href="stylesheets/main.css"/>
+
+    <title>MapMap</title>
+    <script language="JavaScript">
+        var defaultLatLon = [19.5421979, -96.9549486];
+    </script>
+
+</head>
+
+<body>
+
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/leaflet-src.js"></script>
+<script src="javascripts/handlebars.js"></script>
+<script src="javascripts/underscore-min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap-datepicker.js"></script>
+<script src="javascripts/backbone.js"></script>
+<script src="lib/leaflet.label/leaflet.label-src.js"></script>
+<script src="javascripts/lib/moment.js"></script>
+
+<div class="container-fluid" id="content">
+
+    <div class="container">
+        <div class="jumbotron" style="background: white; padding: 50px; width: 60%; margin: 50px auto;">
+            <div class="row">
+                <div class="col-xs-3" style="float: left;display: inline-block;">
+                    <a href="https://mapaton.org">
+                        <img class="pull-left" src="images/logo.png"
+                             style="width: 182px;"/>
+                    </a>
+                </div>
+                <div class="col-xs-9" style="float: left;display: inline-block;">
+                    <div style="padding-left: 20px;" class="control-group {{#error}}error{{/error}}">
+                        <form id="loginForm" action="/view-unit" method="GET">
+                            <input class="app-input" name="unitId" type="text"
+                                   placeholder="Seis dígitos del id generado en el dispositivo móvil."/>
+                            {{#error}}
+                                <span class="help-inline" style="margin-bottom: 10px;">
+                                    {{error}}
+                                </span>
+                            {{/error}}
+                            <br/>
+                            <button class="go-to">Ver datos</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <br/>
+            <p>MapMap es una aplicación de <a href="https://github.com/codeandoxalapa/mapmap/" target="_blank">código
+                abierto</a>, web y móvil que te permite mapear rutas que recorren los vehiculos del Transporte Público
+                de una ciudad, con el objetivo de generar datos en formato GTFS.</p>
+            <p>Con está aplicación puedes crear trazos georeferenciados sin la necesidad de consumir datos del
+                dispositivo móvil, podrás capturar datos como: paradas, pasajeros, tiempo de recorridos, pasajeros que
+                abordan y bajan en una parada, entre otras. <a
+                        style="float: right; position: relative; display: block; top: 20px;"
+                        href="https://play.google.com/store/apps/details?id=org.codeandoxalapa.mapmap"
+                        target="_blank"><img src="images/en_app_rgb_wo_45.png"/></a>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>

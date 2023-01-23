@@ -1,0 +1,19 @@
+body {
+	padding: 0px;
+	background-image:url('../images/background.png');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+#content {
+	padding: 0px;
+	margin-top: 40px;
+}
+
+#map {
+	width: 100%;
+}

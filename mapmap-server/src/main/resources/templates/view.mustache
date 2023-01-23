@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="shortcut icon" type="image/png" href="https://mapaton.org/rutas/libs/images/favicon.png">
+	<link rel="stylesheet" href="javascripts/leaflet.css"/>
+	<link rel="stylesheet" href="javascripts/lib/leaflet.label/leaflet.label.css"/>
+	<link rel="stylesheet" href="bootstrap/boostrap.select2/select2.css"/>
+	<link rel="stylesheet" href="ui-lightness/jquery-ui-1.8.23.custom.css"/>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-datepicker.css"/>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-timepicker.css"/>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"/>
+	<link rel="stylesheet" href="stylesheets/main.css"/>
+
+	<title>MapMap</title>
+	<script>
+        var defaultLatLon = [19.5421979, -96.9549486];
+        var unitId = '{{phone.unitId}}';
+	</script>
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" id="header">
+	<div class="navbar-inner">
+		<a class="brand" href="https://mapaton.org/mapmap">
+			<img style="margin-left: 10px;width: 25px;" src="images/wand_logo.png"/>&nbsp;&nbsp;Mapatón
+			Ciudadano
+		</a>
+		<div class="nav-collapse collapse">
+			<div class="btn-group pull-right">
+				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="icon-user"></i>
+					{{#phone.userName}}
+						{{phone.userName}} ({{phone.unitId}})
+					{{/phone.userName}}
+					{{^phone.userName}}
+						Unidad {{phone.unitId}}
+					{{/phone.userName}}
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="/">Cambiar de usuario</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/leaflet-src.js"></script>
+<script src="javascripts/handlebars.js"></script>
+<script src="javascripts/underscore-min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap-datepicker.js"></script>
+<script src="javascripts/backbone.js"></script>
+<script src="javascripts/lib/leaflet.label/leaflet.label-src.js"></script>
+<script src="javascripts/lib/Polyline.encoded.js"></script>
+<script src="javascripts/lib/moment.js"></script>
+
+<div class="container-fluid" id="content">
+	<style>.alertdrop.select2-container .select2-results {max-height: 300px;}</style>
+
+	<div class="row-fluid" style="background-color: #fff;  position: relative;">
+
+		<div id="map"></div>
+
+		<div id="tripPatternFilter" style="position: absolute; top:10px; right:10px; width:300px;">
+			<div class="well well-small">
+
+				<strong>Datos recolectados</strong>
+				<p>Seleccoina la ruta subida.</p>
+				<hr style="margin: 5px 0;">
+				<select id="patternSelector">
+					{{#tripPatterns}}
+					<option value="{{id}}">{{headsign}}</option>
+					{{/tripPatterns}}
+				</select>
+
+				<div style="margin: 10px;" id="patternDetails"></div>
+				<a class="btn" href="/export-csv?unitIds={{phone.unitId}}">Exportar CSV</a>
+				<a class="btn" href="/export-shapefile?unitIds={{phone.unitId}}">Exportar Shapefile</a>
+
+			</div>
+
+		</div>
+
+	</div>
+	<script src="javascripts/tw/upload-backbone.js"></script>
+	<script src="javascripts/tw/upload-map.js"></script>
+
+</div>
+
+</body>
+
+</html>
+
