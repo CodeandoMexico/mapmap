@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "org.codeandomexico.mapmap",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 1040,
+      "versionName": "1.0.40",
+      "outputFile": "MainActivity-release.apk"
+    }
+  ],
+  "elementType": "File"
+}
