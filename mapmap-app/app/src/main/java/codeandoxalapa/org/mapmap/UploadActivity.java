@@ -67,19 +67,20 @@ public class UploadActivity extends Activity {
             }
         }
 
+        Typeface fuenteBebeasNeueBold = Typeface.createFromAsset(getAssets(), "fonts/bebasneue_bold.ttf");
         // Campo con la etiqueta Rutas
         TextView rutasLabel = (TextView) findViewById(R.id.rutasLabel);
-        rutasLabel.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bebasneue_bold.ttf"));
+        rutasLabel.setTypeface(fuenteBebeasNeueBold);
         // Campo con la etiqueta Tamaño
         TextView tamanoLabel = (TextView) findViewById(R.id.tamanoLabel);
-        tamanoLabel.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bebasneue_bold.ttf"));
+        tamanoLabel.setTypeface(fuenteBebeasNeueBold);
         // Campo con el texto del número de rutas
         TextView numeroRutasText = (TextView) findViewById(R.id.numeroRutasText);
-        numeroRutasText.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bebasneue_bold.ttf"));
+        numeroRutasText.setTypeface(fuenteBebeasNeueBold);
         numeroRutasText.setText(String.valueOf(routeFiles.length));
         // Campo con el tamaño total de las rutas
         TextView tamanoDatos = (TextView) findViewById(R.id.tamanoDatos);
-        tamanoDatos.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/bebasneue_bold.ttf"));
+        tamanoDatos.setTypeface(fuenteBebeasNeueBold);
         tamanoDatos.setText(formatedDataSize(routeFiles));
 
 
@@ -176,10 +177,10 @@ public class UploadActivity extends Activity {
 
     private void terminarActividad() {
         if (_contadorRutasEnviadasOk > 0) {
-            Toast.makeText(UploadActivity.this, "Se enviaron correctamente " + _contadorRutasEnviadasOk + " ruta/s", Toast.LENGTH_LONG).show();
+            Toast.makeText(UploadActivity.this, "Se envió " + _contadorRutasEnviadasOk + " ruta/s", Toast.LENGTH_LONG).show();
         }
         if (_contadorRutasEnviadasNok > 0) {
-            Toast.makeText(UploadActivity.this, "No se pudieron enviar " + _contadorRutasEnviadasNok + " ruta/s", Toast.LENGTH_LONG).show();
+            Toast.makeText(UploadActivity.this, "No se envió " + _contadorRutasEnviadasNok + " ruta/s", Toast.LENGTH_LONG).show();
         }
         ProgressBar barraProgreso = (ProgressBar) findViewById(R.id.barraProgreso);
         barraProgreso.setVisibility(View.GONE);

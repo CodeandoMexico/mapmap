@@ -24,7 +24,6 @@ import java.text.DecimalFormat;
 
 public class CaptureActivity extends Activity implements ICaptureActivity {
 
-    private static Intent serviceIntent;
     private CaptureService captureService;
 
     private Vibrator vibratorService;
@@ -40,7 +39,7 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
 
         public void onServiceConnected(ComponentName name, IBinder service) {
             captureService = ((CaptureService.CaptureServiceBinder) service).getService();
-            captureService.setCaptureActivity(CaptureActivity.this);
+            CaptureService.setCaptureActivity(CaptureActivity.this);
             initButtons();
             updateRouteName();
             updateDistance();
@@ -55,7 +54,7 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture);
-        serviceIntent = new Intent(this, CaptureService.class);
+        Intent serviceIntent = new Intent(this, CaptureService.class);
         startService(serviceIntent);
 
         bindService(serviceIntent, caputreServiceConnection, Context.BIND_AUTO_CREATE);
@@ -106,13 +105,13 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
             switch (v.getId()) {
 
                 case R.id.botonIniciarCaptura:
-                    if (!captureService.capturing) {
+                    if (!CaptureService.capturing) {
                         startCapture();
                     }
                     break;
 
                 case R.id.botonFinalizarCaptura:
-                    if (captureService.capturing) {
+                    if (CaptureService.capturing) {
                         DialogInterface.OnClickListener dialogClickListener = (dialog, which) -> {
                             switch (which) {
                                 case DialogInterface.BUTTON_POSITIVE:
@@ -166,16 +165,11 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
         ImageButton botonBajaronPasajeros = (ImageButton) findViewById(R.id.botonBajaronPasajeros);
         botonBajaronPasajeros.setOnClickListener(listener);
 
-        //ImageView passengerImageView = (ImageView) findViewById(R.id.passengerImageView);
-        //passengerImageView.setAlpha(128);
-
         initButtons();
-
         updateRouteName();
         updateDistance();
         updateStopCount();
         updatePassengerCountDisplay();
-
     }
 
 
@@ -185,18 +179,18 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
             botonIniciarCaptura.setImageResource(R.drawable.start_button);
             ImageButton botonFinalizarCaptura = (ImageButton) findViewById(R.id.botonFinalizarCaptura);
             botonFinalizarCaptura.setImageResource(R.drawable.stop_button_gray);
-        } else if (captureService.capturing) {
+        } else if (CaptureService.capturing) {
             ImageButton botonIniciarCaptura = (ImageButton) findViewById(R.id.botonIniciarCaptura);
             botonIniciarCaptura.setImageResource(R.drawable.start_button_gray);
             ImageButton botonFinalizarCaptura = (ImageButton) findViewById(R.id.botonFinalizarCaptura);
             botonFinalizarCaptura.setImageResource(R.drawable.stop_button);
-        } else if (!captureService.capturing && captureService.currentCapture == null) {
+        } else if (CaptureService.currentCapture == null) {
             ImageButton botonIniciarCaptura = (ImageButton) findViewById(R.id.botonIniciarCaptura);
             botonIniciarCaptura.setImageResource(R.drawable.start_button_gray);
             ImageButton botonFinalizarCaptura = (ImageButton) findViewById(R.id.botonFinalizarCaptura);
             botonFinalizarCaptura.setImageResource(R.drawable.stop_button_gray);
         }
-        if (!captureService.capturing && captureService.currentCapture == null && captureService.atStop()) {
+        if (!CaptureService.capturing && CaptureService.currentCapture == null && captureService.atStop()) {
             ImageButton botonMarcarParada = (ImageButton) findViewById(R.id.botonMarcarParada);
             botonMarcarParada.setImageResource(R.drawable.transit_stop_button_red);
         }
@@ -223,7 +217,7 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
     private void stopCapture() {
         if (captureService != null) {
             vibratorService.vibrate(100);
-            if (captureService.currentCapture.points.size() > 0) {
+            if (CaptureService.currentCapture.points.size() > 0) {
                 Toast.makeText(CaptureActivity.this, "Trazado completo", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(CaptureActivity.this, "No se generó ningún dato", Toast.LENGTH_SHORT).show();
@@ -238,22 +232,22 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
     }
 
     private void passengerAlight() {
-        if (captureService != null && captureService.capturing) {
-            if (captureService.currentCapture.totalPassengerCount == 0) {
+        if (captureService != null && CaptureService.capturing) {
+            if (CaptureService.currentCapture.totalPassengerCount == 0) {
                 return;
             }
             vibratorService.vibrate(5);
-            captureService.currentCapture.totalPassengerCount--;
-            captureService.currentCapture.alightCount++;
+            CaptureService.currentCapture.totalPassengerCount--;
+            CaptureService.currentCapture.alightCount++;
             updatePassengerCountDisplay();
         }
     }
 
     private void passengerBoard() {
-        if (captureService != null && captureService.capturing) {
-            captureService.currentCapture.totalPassengerCount++;
+        if (captureService != null && CaptureService.capturing) {
+            CaptureService.currentCapture.totalPassengerCount++;
             vibratorService.vibrate(5);
-            captureService.currentCapture.boardCount++;
+            CaptureService.currentCapture.boardCount++;
             updatePassengerCountDisplay();
         }
     }
@@ -268,14 +262,14 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
 
     private void transitStop() {
 
-        if (captureService != null && captureService.capturing) {
+        if (captureService != null && CaptureService.capturing) {
             try {
                 if (captureService.atStop()) {
                     checkStopValidator.setEnabled(false);
                     boolean banSignal = checkStopValidator.isChecked();
-                    captureService.departStopStop(captureService.currentCapture.boardCount, captureService.currentCapture.alightCount, banSignal);
-                    captureService.currentCapture.alightCount = 0;
-                    captureService.currentCapture.boardCount = 0;
+                    captureService.departStopStop(CaptureService.currentCapture.boardCount, CaptureService.currentCapture.alightCount, banSignal);
+                    CaptureService.currentCapture.alightCount = 0;
+                    CaptureService.currentCapture.boardCount = 0;
 
                     ImageButton botonMarcarParada = (ImageButton) findViewById(R.id.botonMarcarParada);
                     botonMarcarParada.setImageResource(R.drawable.transit_stop_button);
@@ -310,14 +304,9 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
     }
 
     private void checkStopSignal() {
-        if (captureService != null && captureService.capturing) {
-            StringBuffer OUTPUT = new StringBuffer();
-            if (checkStopValidator.isChecked()) {
-                OUTPUT.append("Parada marcada");
-            } else {
-                OUTPUT.append("Parada no marcada");
-            }
-            Toast.makeText(CaptureActivity.this, OUTPUT.toString(), Toast.LENGTH_LONG).show();
+        if (captureService != null && CaptureService.capturing) {
+            String estatus = checkStopValidator.isChecked() ? "Parada marcada" : "Parada no marcada";
+            Toast.makeText(CaptureActivity.this, estatus, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -329,18 +318,20 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
     @SuppressLint("SetTextI18n")
     private void updateStopCount() {
         TextView contadorParadasText = (TextView) findViewById(R.id.contadorParadasText);
-        contadorParadasText.setText(Integer.valueOf(captureService.currentCapture.stops.size()).toString());
+        contadorParadasText.setText(Integer.valueOf(CaptureService.currentCapture.stops.size()).toString());
     }
 
     public void updateDistance() {
-        TextView distanciaText = (TextView) findViewById(R.id.distanciaText);
-        DecimalFormat distanceFormat = new DecimalFormat("#,##0.00");
-        distanciaText.setText(String.format("%skm", distanceFormat.format((double) (captureService.currentCapture.distance) / 1000)));
+        if (CaptureService.capturing) {
+            TextView distanciaText = (TextView) findViewById(R.id.distanciaText);
+            DecimalFormat distanceFormat = new DecimalFormat("#,##0.00");
+            distanciaText.setText(String.format("%s Km", distanceFormat.format((double) (CaptureService.currentCapture.distance) / 1000)));
+        }
     }
 
     public void updateDuration() {
-        if (captureService.capturing) {
-            ((Chronometer) findViewById(R.id.cronometroDuracion)).setBase(captureService.currentCapture.startMs);
+        if (CaptureService.capturing) {
+            ((Chronometer) findViewById(R.id.cronometroDuracion)).setBase(CaptureService.currentCapture.startMs);
             ((Chronometer) findViewById(R.id.cronometroDuracion)).start();
         } else {
             ((Chronometer) findViewById(R.id.cronometroDuracion)).setBase(SystemClock.elapsedRealtime());
@@ -352,24 +343,25 @@ public class CaptureActivity extends Activity implements ICaptureActivity {
         estatusGpsLabel.setText(captureService.getGpsStatus());
     }
 
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     private void updatePassengerCountDisplay() {
 
-        if (captureService != null && captureService.capturing) {
+        if (captureService != null && CaptureService.capturing) {
 
             TextView subieronPasajerosText = (TextView) findViewById(R.id.subieronPasajerosText);
             TextView totalPasajerosText = (TextView) findViewById(R.id.totalPasajerosText);
             TextView bajaronpasajerosText = (TextView) findViewById(R.id.bajaronpasajerosText);
 
-            if (captureService.currentCapture.boardCount > 0) {
-                subieronPasajerosText.setText("+" + captureService.currentCapture.boardCount.toString());
+            if (CaptureService.currentCapture.boardCount > 0) {
+                subieronPasajerosText.setText(String.format("+%s", CaptureService.currentCapture.boardCount.toString()));
             } else {
                 subieronPasajerosText.setText("0");
             }
 
             totalPasajerosText.setText(CaptureService.currentCapture.totalPassengerCount.toString());
 
-            if (captureService.currentCapture.alightCount > 0) {
-                bajaronpasajerosText.setText(String.format("-%d", captureService.currentCapture.alightCount));
+            if (CaptureService.currentCapture.alightCount > 0) {
+                bajaronpasajerosText.setText(String.format("-%d", CaptureService.currentCapture.alightCount));
             } else {
                 bajaronpasajerosText.setText("0");
             }
