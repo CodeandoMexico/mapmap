@@ -1,4 +1,4 @@
-package codeandoxalapa.org.mapmap;
+package org.codeandomexico.mapmap;
 
 public class NoGPSFixException extends Exception {
 

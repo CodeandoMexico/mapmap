@@ -1,4 +1,4 @@
-package codeandoxalapa.org.mapmap;
+package org.codeandomexico.mapmap;
 
 import android.content.Context;
 import android.content.Intent;

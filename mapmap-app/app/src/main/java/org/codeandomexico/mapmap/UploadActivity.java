@@ -1,4 +1,4 @@
-package codeandoxalapa.org.mapmap;
+package org.codeandomexico.mapmap;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -28,7 +28,7 @@ import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.text.DecimalFormat;
 
-import codeandoxalapa.org.mapmap.TransitWandProtos.Upload;
+import org.codeandomexico.mapmap.TransitWandProtos.Upload;
 
 public class UploadActivity extends Activity {
 

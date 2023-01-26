@@ -1,7 +1,6 @@
-package codeandoxalapa.org.mapmap;
+package org.codeandomexico.mapmap;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -32,7 +31,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
-import codeandoxalapa.org.mapmap.TransitWandProtos.Upload;
+import org.codeandomexico.mapmap.TransitWandProtos.Upload;
 
 public class CaptureService extends Service {
 

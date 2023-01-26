@@ -1,4 +1,4 @@
-package codeandoxalapa.org.mapmap;
+package org.codeandomexico.mapmap;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

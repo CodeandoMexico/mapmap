@@ -1,4 +1,4 @@
-package codeandoxalapa.org.mapmap;
+package org.codeandomexico.mapmap;
 
 import android.content.Context;
 import android.location.Location;
@@ -7,9 +7,9 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
 
-import codeandoxalapa.org.mapmap.TransitWandProtos.Upload;
-import codeandoxalapa.org.mapmap.TransitWandProtos.Upload.Route.Point;
-import codeandoxalapa.org.mapmap.TransitWandProtos.Upload.Route.Stop;
+import org.codeandomexico.mapmap.TransitWandProtos.Upload;
+import org.codeandomexico.mapmap.TransitWandProtos.Upload.Route.Point;
+import org.codeandomexico.mapmap.TransitWandProtos.Upload.Route.Stop;
 
 public class RouteCapture {
 

@@ -1,4 +1,4 @@
-package codeandoxalapa.org.mapmap;
+package org.codeandomexico.mapmap;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -43,7 +43,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import codeandoxalapa.org.mapmap.TransitWandProtos.Upload;
+import org.codeandomexico.mapmap.TransitWandProtos.Upload;
 
 public class MapActivity extends Activity {
 

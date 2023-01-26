@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    namespace 'codeandoxalapa.org.mapmap'
+    namespace 'org.codeandomexico.mapmap'
     compileSdk 21
 
     defaultConfig {
-        applicationId "codeandoxalapa.org.mapmap"
+        applicationId "org.codeandomexico.mapmap"
         minSdk 8
         targetSdk 21
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
     }
 
     buildTypes {

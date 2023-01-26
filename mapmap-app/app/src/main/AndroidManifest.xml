@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="codeandoxalapa.org.mapmap">
+    package="org.codeandomexico.mapmap">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -21,7 +21,7 @@
         android:theme="@android:style/Theme.NoTitleBar">
 
 
-        <service android:name="codeandoxalapa.org.mapmap.CaptureService">
+        <service android:name="org.codeandomexico.mapmap.CaptureService">
             <intent-filter>
                 <action android:name="codeandoxalapa.org.mapmap.CaptureService" />
             </intent-filter>
@@ -29,42 +29,41 @@
 
 
         <activity
-            android:name="codeandoxalapa.org.mapmap.MainActivity"
+            android:name="org.codeandomexico.mapmap.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name="codeandoxalapa.org.mapmap.RegisterActivity"
+            android:name="org.codeandomexico.mapmap.RegisterActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="codeandoxalapa.org.mapmap.NewActivity"
+            android:name="org.codeandomexico.mapmap.NewActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="codeandoxalapa.org.mapmap.ReviewActivity"
+            android:name="org.codeandomexico.mapmap.ReviewActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="codeandoxalapa.org.mapmap.UploadActivity"
+            android:name="org.codeandomexico.mapmap.UploadActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="codeandoxalapa.org.mapmap.MapActivity"
+            android:name="org.codeandomexico.mapmap.MapActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="codeandoxalapa.org.mapmap.CaptureActivity"
+            android:name="org.codeandomexico.mapmap.CaptureActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="codeandoxalapa.org.mapmap.EditActivity"
+            android:name="org.codeandomexico.mapmap.EditActivity"
             android:screenOrientation="portrait" />
 
     </application>
