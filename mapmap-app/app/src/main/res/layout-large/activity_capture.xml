@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_trazar"
+    android:gravity="top"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".CaptureActivity">
+
+    <LinearLayout
+        android:id="@+id/Cabecera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nombreRutaLabel"
+            style="@style/text_title_review_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="Nombre de la ruta"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/estatusGpsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="Sin señal GPS"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color_blue" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutBotonesCaptura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Cabecera"
+        android:layout_marginTop="64dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/botonIniciarCaptura"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:layout_weight="1"
+            android:layout_gravity="start"
+            android:gravity="start"
+            android:contentDescription="@string/boton_iniciar_captura"
+            android:src="@drawable/start_button" />
+
+        <ImageButton
+            android:id="@+id/botonFinalizarCaptura"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:contentDescription="@string/finalizar"
+            android:src="@drawable/stop_button"
+            android:background="@null"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TextosCapturaDuracion"
+        android:layout_below="@+id/layoutBotonesCaptura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/duracionLabel"
+            style="@style/text_title_review_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Duración:"
+            android:textColor="@color/text_color_blue" />
+
+        <Chronometer
+            android:id="@+id/duracionText"
+            style="@style/text_title_map"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@+id/distanceText"
+            android:gravity="center_vertical"
+            android:textColor="#000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TextosCapturaDistancia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextosCapturaDuracion"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/distanciaLabel"
+            style="@style/text_title_review_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distancia:"
+            android:textColor="@color/text_color_blue" />
+
+        <TextView
+            android:id="@+id/distanciaText"
+            style="@style/text_title_map"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center_vertical"
+            android:text="0m"
+            android:textColor="#000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TextosCapturaParadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextosCapturaDistancia"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/paradaLabel"
+            style="@style/text_title_review_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parada:"
+            android:textColor="@color/text_color_blue" />
+
+        <TextView
+            android:id="@+id/contadorParadasText"
+            style="@style/text_title_map"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center_vertical"
+            android:text="0"
+            android:textColor="#000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/BotonesParadas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextosCapturaParadas"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/botonMarcarParada"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:contentDescription="@string/boton_marcar_parada"
+            android:gravity="center_vertical|center_horizontal"
+            android:src="@drawable/transit_stop_button" />
+
+        <TextView
+            android:id="@+id/marcarParadaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|start"
+            android:text="Marcar parada"
+            android:textColor="@color/text_color_blue" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/BotonesParadasNs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BotonesParadas"
+        android:layout_marginTop="0dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkParadaNoSenalizada"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal" />
+
+        <TextView
+            android:id="@+id/paradaNoSenalizadaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|start"
+            android:text="¿Es una parada no señalizada?"
+            android:textColor="@color/text_color_blue" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/TextoPasajeros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/BotonesParadasNs"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/pasajerosLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Pasajeros"
+            android:textColor="@color/text_color_blue" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/BotonesPasajeros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextoPasajeros"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/subieronPasajerosText"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:gravity="center_vertical|end"
+            android:text="0"
+            android:layout_weight="1"
+            android:textColor="#00e191"
+            android:textSize="40sp" />
+
+        <ImageButton
+            android:id="@+id/botonSubieronPasajeros"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_weight="1"
+            android:contentDescription="@string/boton_mas"
+            android:src="@drawable/board_button" />
+
+        <TextView
+            android:id="@+id/totalPasajerosText"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="0"
+            android:textColor="@color/text_color_blue"
+            android:textSize="40sp" />
+
+        <ImageButton
+            android:id="@+id/botonBajaronPasajeros"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:contentDescription="@string/boton_menos"
+            android:layout_weight="1"
+            android:src="@drawable/alight_button" />
+
+        <TextView
+            android:id="@+id/bajaronpasajerosText"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:text="0"
+            android:textColor="#ff8500"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

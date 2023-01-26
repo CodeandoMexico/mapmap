@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MapMap</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="hello_world">¡Hola mundo!</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="boton_marcar_parada">Marcar parada</string>
+    <string name="boton_iniciar_captura">Iniciar captura</string>
+    <string name="btn_iniciar_captura">Inciiar captura</string>
+    <string name="boton_mas">Más</string>
+    <string name="boton_menos">Menos</string>
+</resources>

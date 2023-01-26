@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ebf3df"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".UploadActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/passengerImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/app_logo"
+            android:contentDescription="Autobús de trasnporte público" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passengerImageView"
+        android:layout_below="@+id/passengerImageView"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/subir"
+            tools:ignore="ImageContrastCheck" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.93"
+        android:layout_marginTop="64dp">
+
+        <TextView
+            android:id="@+id/rutasLabel"
+            style="@style/text_title_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="44dp"
+            android:text="Rutas:"
+            android:textColor="@color/text_color_blue" />
+
+        <TextView
+            android:id="@+id/numeroRutasText"
+            style="@style/text_title_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/rutasLabel"
+            android:layout_alignBottom="@+id/rutasLabel"
+            android:layout_toRightOf="@+id/rutasLabel"
+            android:textColor="@color/text_color_green"
+            android:layout_marginLeft="16dp"
+            android:text="0"/>
+
+        <TextView
+            android:id="@+id/tamanoLabel"
+            style="@style/text_title_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rutasLabel"
+            android:layout_alignRight="@+id/rutasLabel"
+            android:text="Tamaño:"
+            android:textColor="@color/text_color_blue" />
+
+        <TextView
+            android:id="@+id/tamanoDatos"
+            style="@style/text_title_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rutasLabel"
+            android:layout_alignLeft="@+id/numeroRutasText"
+            android:textColor="@color/text_color_green"
+            android:text="0 KB"/>
+
+        <ImageButton
+            android:id="@+id/botonEnviar"
+            style="@style/text_title_review"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tamanoLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="64dp"
+            android:background="@null"
+            android:minHeight="48dp"
+            android:src="@drawable/upload_button"
+            android:textColor="@color/text_color"
+            android:visibility="visible"
+            android:contentDescription="Enviar"
+            />
+
+        <ProgressBar
+            android:id="@+id/barraProgreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tamanoLabel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="64dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

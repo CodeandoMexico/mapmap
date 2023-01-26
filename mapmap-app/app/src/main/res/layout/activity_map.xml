@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+       android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+		android:id="@+id/mainMapView"/>
+
+    <RelativeLayout
+        android:id="@+id/Rel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/nombreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            style="@style/text_title_map"
+            android:textColor="@color/text_color_blue"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp" />
+
+        <TextView
+            android:id="@+id/descripcionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/nombreText"
+            android:layout_marginRight="0dp"
+            style="@style/text_title_map"
+            android:textColor="@color/text_color_blue"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:id="@+id/notasText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/descripcionText"
+            android:layout_marginRight="0dp"
+            style="@style/text_title_map"
+            android:textColor="@color/text_color_blue"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp" />
+
+        <ImageButton
+            android:id="@+id/botonBasura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="0dp"
+            android:background="@null"
+            android:src="@drawable/trash"
+            android:layout_alignParentEnd="true" />
+
+     </RelativeLayout>
+
+</RelativeLayout>
