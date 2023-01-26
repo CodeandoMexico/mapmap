@@ -124,7 +124,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:gravity="center_vertical"
-            android:text="0m"
+            android:text="0"
             android:textColor="#000" />
 
     </LinearLayout>
