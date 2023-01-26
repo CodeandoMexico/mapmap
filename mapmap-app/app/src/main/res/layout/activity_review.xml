@@ -34,10 +34,10 @@
         android:id="@+id/captureList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:cacheColorHint="#00000000"
+        android:cacheColorHint="@color/text_color_dark_gray"
         android:divider="#00000000"
         android:layout_marginTop="32dp"
-        android:dividerHeight="16dp">
+        android:dividerHeight="8dp">
 
     </ListView>
 

@@ -90,7 +90,7 @@
             android:textColor="@color/text_color_blue" />
 
         <Chronometer
-            android:id="@+id/duracionText"
+            android:id="@+id/cronometroDuracion"
             style="@style/text_title_map"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -124,7 +124,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="16dp"
             android:gravity="center_vertical"
-            android:text="0m"
+            android:text="0"
             android:textColor="#000" />
 
     </LinearLayout>
@@ -248,7 +248,7 @@
             android:gravity="center_vertical|end"
             android:text="0"
             android:layout_weight="1"
-            android:textColor="#00e191"
+            android:textColor="@color/text_color_green"
             android:textSize="40sp" />
 
         <ImageButton
@@ -286,7 +286,7 @@
             android:layout_marginLeft="8dp"
             android:layout_weight="1"
             android:text="0"
-            android:textColor="#ff8500"
+            android:textColor="@color/text_color_orange"
             android:textSize="40sp" />
 
     </LinearLayout>

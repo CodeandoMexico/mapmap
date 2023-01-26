@@ -6,7 +6,6 @@
     <string name="finalizar">Finalizar</string>
     <string name="boton_marcar_parada">Marcar parada</string>
     <string name="boton_iniciar_captura">Iniciar captura</string>
-    <string name="btn_iniciar_captura">Inciiar captura</string>
     <string name="boton_mas">Más</string>
     <string name="boton_menos">Menos</string>
 </resources>

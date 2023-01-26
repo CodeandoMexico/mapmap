@@ -24,7 +24,7 @@
             android:id="@+id/usuarioLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#2f323e"
+            android:textColor="@color/text_color_dark_gray"
             android:textSize="20sp"
             android:text=""/>
 
@@ -45,7 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:layout_marginLeft="64dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="64dp">
 
         <ImageButton
             android:id="@+id/botonTrazar"
@@ -53,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:src="@drawable/btn_trazar"
-            android:background="@null"/>
+            android:background="@null"
+            android:contentDescription="Trazar" />
 
         <ImageButton
             android:id="@+id/botonRecorridos"
@@ -63,7 +65,8 @@
             android:layout_alignLeft="@+id/WandButton"
             android:layout_marginBottom="32dp"
             android:background="@null"
-            android:src="@drawable/btn_recorridos" />
+            android:src="@drawable/btn_recorridos"
+            android:contentDescription="Recorridos"/>
 
         <ImageButton
             android:id="@+id/botonEnviar"
@@ -72,7 +75,8 @@
             android:layout_alignLeft="@+id/ReviewButton"
             android:layout_centerVertical="true"
             android:background="@null"
-            android:src="@drawable/btn_enviar" />
+            android:src="@drawable/btn_enviar"
+            android:contentDescription="Enviar"/>
 
     </LinearLayout>
 
