@@ -97,6 +97,9 @@ El proyecto consiste de dos partes, las cuales están publicadas con dos licenci
 * Una [aplicación móvil Android](https://github.com/CodeandoMexico/mapmap/tree/master/mapmap-app), con Licencia MIT. [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 * Una [aplicación web](https://github.com/CodeandoMexico/mapmap/tree/master/mapmap-server), con licencia GNU Affero General Public License v3.0. [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
+Si estás planeando reutilizar la aplicación web, es necesario que publiques el código bajo la misma licencia, GPL Affero 3, en un repositorio de acceso público y mantengas los avisos de autoría, además de indicar los cambios realizados al código existente.
+
+Te recomendamos leas a detalle la licencia. Puedes contactarnos si tienes alguna duda al respecto.
 
 ## Agradecimiento
 
