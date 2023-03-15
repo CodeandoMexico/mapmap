@@ -240,10 +240,7 @@ public class CaptureService extends Service {
     }
 
     public boolean atStop() {
-
-        if (currentStop == null) return false;
-        else return true;
-
+        return currentStop != null;
     }
 
     public long distanceFromLocation(Location location1, Location location2) {
@@ -288,7 +285,7 @@ public class CaptureService extends Service {
 
         // connect location manager
         gpsLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
+        assert gpsLocationManager != null;
         boolean gpsEnabled = gpsLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
         if (gpsEnabled) {
@@ -308,14 +305,14 @@ public class CaptureService extends Service {
     private void stopGps() {
         Log.i("LocationService", "stopGps");
 
-        if (gpsLocationManager == null)
+        if (gpsLocationManager == null) {
             gpsLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
+        }
         if (locationListener != null) {
+            assert gpsLocationManager != null;
             gpsLocationManager.removeUpdates(locationListener);
             gpsLocationManager.removeGpsStatusListener(locationListener);
         }
-
         gpsStarted = false;
     }
 
@@ -327,25 +324,20 @@ public class CaptureService extends Service {
     }
 
     public void stopGpsAndRetry() {
-
         Log.d("LocationService", "stopGpsAndRetry");
-
         restartGps();
     }
 
     public String getGpsStatus() {
-
-        String status = "";
-
-        if (lastLocation != null) status = "GPS +/-" + Math.round(lastLocation.getAccuracy()) + "m";
-        else status = "GPS Esperando...";
-
-        return status;
+        if (lastLocation != null) {
+            return "GPS +/-" + Math.round(lastLocation.getAccuracy()) + "m";
+        }
+        return "GPS Esperando...";
     }
 
     private void showNotificationTray() {
         Intent contentIntent = new Intent(this, CaptureActivity.class);
-        PendingIntent pending = PendingIntent.getActivity(getApplicationContext(), 0, contentIntent, android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pending = PendingIntent.getActivity(getApplicationContext(), 0, contentIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         Notification notification = new Notification(R.drawable.tray_icon, null, System.currentTimeMillis());
         notification.flags |= Notification.FLAG_ONGOING_EVENT;
         notification.setLatestEventInfo(getApplicationContext(), "MapMap", "", pending);
@@ -396,21 +388,10 @@ public class CaptureService extends Service {
         public void onGpsStatusChanged(int event) {
             switch (event) {
                 case GpsStatus.GPS_EVENT_FIRST_FIX:
-
-                    break;
-
                 case GpsStatus.GPS_EVENT_SATELLITE_STATUS:
-
-                    break;
-
                 case GpsStatus.GPS_EVENT_STARTED:
-
-                    break;
-
                 case GpsStatus.GPS_EVENT_STOPPED:
-
                     break;
-
             }
         }
     }

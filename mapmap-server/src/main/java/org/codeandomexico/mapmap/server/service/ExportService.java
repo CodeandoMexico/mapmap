@@ -220,7 +220,9 @@ public class ExportService {
                 "START:String");
         dataStore.createSchema(ROUTE_TYPE);
 
-        List<SimpleFeature> simpleFeatures = tripPatterns.stream().filter(tripPattern -> tripPattern.tripShape != null).map(tripPattern -> {
+        List<SimpleFeature> simpleFeatures = tripPatterns.stream()
+                .filter(tripPattern -> tripPattern.tripShape != null)
+                .map(tripPattern -> {
             SimpleFeatureBuilder simpleFeatureBuilder = new SimpleFeatureBuilder(ROUTE_TYPE);
             simpleFeatureBuilder.add(tripPattern.tripShape.shape);
             simpleFeatureBuilder.add(tripPattern.route.id.toString());
