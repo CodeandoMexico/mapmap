@@ -104,4 +104,4 @@ Agradecemos a todos los miembros que pertenecen a la comunidad de <a href="http:
 
 ---
 
-Creado con ❤️ por la comunidad de [Codeando México](http://www.codeandomexico.org).
+Creado con 💜💙💚💛❤️ por la comunidad de [Codeando México](http://www.codeandomexico.org).
