@@ -92,7 +92,10 @@ La aplicación de servidor sirve para:
 
 
 ## Licencia
-Licencia MIT [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+El proyecto consiste de dos partes, las cuales están publicadas con dos licencias diferentes. Cada proyecto tiene la licencia en su carpeta:
+* Una [aplicación móvil Android](https://github.com/CodeandoMexico/mapmap/tree/master/mapmap-app), con Licencia MIT. [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+* Una [aplicación web](https://github.com/CodeandoMexico/mapmap/tree/master/mapmap-server), con licencia GNU Affero General Public License v3.0. [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
 
 ## Agradecimiento
