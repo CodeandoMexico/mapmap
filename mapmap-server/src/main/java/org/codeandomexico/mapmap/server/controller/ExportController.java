@@ -18,10 +18,13 @@ import java.util.Set;
 @Controller
 public class ExportController {
 
-    @Autowired
-    private ExportService exportService;
+    private final ExportService exportService;
 
     private final String TIMESTAMP_FORMAT = "yyyyMMdd_hhmmssSSS";
+
+    public ExportController(ExportService exportService) {
+        this.exportService = exportService;
+    }
 
     @GetMapping(path = "/export-shapefile", produces = "application/zip")
     @ResponseBody

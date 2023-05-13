@@ -41,7 +41,8 @@ public class APIController {
     @GetMapping(path = "/register", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public ResponseEntity<Phone> register(
-            @RequestParam(name = "imei", required = false) String imei, String userName
+            @RequestParam(name = "imei", required = false) String imei,
+            String userName
     ) {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Access-Control-Allow-Origin", "*");
@@ -51,7 +52,8 @@ public class APIController {
         }
         String _userName = userName != null ? userName.toUpperCase() : "Anónimo";
         Optional<Phone> phone = mainService.registerPhone(imei, _userName);
-        return phone.map(value -> new ResponseEntity<>(value, responseHeaders, HttpStatus.OK))
+        return phone
+                .map(value -> new ResponseEntity<>(value, responseHeaders, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(null, responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
@@ -70,7 +72,11 @@ public class APIController {
             return new ResponseEntity<>(new JsonObject().toString(), responseHeaders, HttpStatus.OK);
         }
         List<TripPattern> tripPatterns = tripPatternRepository.findByRoute_PhoneOrderByIdDesc(phone.get());
-        Gson gson = new GsonBuilder().registerTypeAdapter(TripPattern.class, new TripPatternListSerializer()).serializeSpecialFloatingPointValues().serializeNulls().create();
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(TripPattern.class, new TripPatternListSerializer())
+                .serializeSpecialFloatingPointValues()
+                .serializeNulls()
+                .create();
         return new ResponseEntity<>(gson.toJson(tripPatterns), responseHeaders, HttpStatus.OK);
     }
 
@@ -83,7 +89,11 @@ public class APIController {
         responseHeaders.set("Access-Control-Allow-Origin", "*");
         Optional<TripPattern> tripPattern = tripPatternRepository.findById(patternId);
         if (tripPattern.isPresent()) {
-            Gson gson = new GsonBuilder().registerTypeAdapter(TripPattern.class, new TripPatternSerializer()).serializeSpecialFloatingPointValues().serializeNulls().create();
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(TripPattern.class, new TripPatternSerializer())
+                    .serializeSpecialFloatingPointValues()
+                    .serializeNulls()
+                    .create();
             return new ResponseEntity<>(gson.toJson(tripPattern.orElse(null)), responseHeaders, HttpStatus.OK);
         }
         JsonObject error = new JsonObject();

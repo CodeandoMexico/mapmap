@@ -20,7 +20,6 @@ import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -34,10 +33,13 @@ import java.util.concurrent.atomic.AtomicLong;
 @Component
 public class ExportService {
 
-    @Autowired
-    private TripPatternRepository tripPatternRepository;
+    private final TripPatternRepository tripPatternRepository;
 
     Logger logger = LoggerFactory.getLogger(ExportService.class);
+
+    public ExportService(TripPatternRepository tripPatternRepository) {
+        this.tripPatternRepository = tripPatternRepository;
+    }
 
     public Optional<File> generateExportShapefile(Set<String> unitIds, String timestamp) {
 
@@ -93,12 +95,12 @@ public class ExportService {
                     String[] stopData = new String[stopsHeader.length];
                     stopData[0] = route.id.toString();
                     stopData[1] = tripPatternStop.stopSequence.toString();
-                    stopData[2] = "" + tripPatternStop.stop.location.getCoordinate().y;
-                    stopData[3] = "" + tripPatternStop.stop.location.getCoordinate().x;
-                    stopData[4] = "" + tripPatternStop.defaultTravelTime;
-                    stopData[5] = "" + tripPatternStop.defaultDwellTime;
-                    stopData[6] = "" + tripPatternStop.board;
-                    stopData[7] = "" + tripPatternStop.alight;
+                    stopData[2] = String.valueOf(tripPatternStop.stop.location.getCoordinate().y);
+                    stopData[3] = String.valueOf(tripPatternStop.stop.location.getCoordinate().x);
+                    stopData[4] = String.valueOf(tripPatternStop.defaultTravelTime);
+                    stopData[5] = String.valueOf(tripPatternStop.defaultDwellTime);
+                    stopData[6] = String.valueOf(tripPatternStop.board);
+                    stopData[7] = String.valueOf(tripPatternStop.alight);
                     stopsCsvWriter.writeNext(stopData);
                 });
             });

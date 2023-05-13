@@ -3,7 +3,6 @@ package org.codeandomexico.mapmap.server.service;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.codeandomexico.mapmap.server.model.Phone;
 import org.codeandomexico.mapmap.server.repository.PhoneRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -12,8 +11,11 @@ import java.util.Optional;
 @Component
 public class MainService {
 
-    @Autowired
-    private PhoneRepository phoneRepository;
+    private final PhoneRepository phoneRepository;
+
+    public MainService(PhoneRepository phoneRepository) {
+        this.phoneRepository = phoneRepository;
+    }
 
     public Optional<Phone> loadPhone(String imei) {
         Optional<Phone> phone = phoneRepository.findByImei(imei);

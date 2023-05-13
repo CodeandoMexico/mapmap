@@ -11,7 +11,6 @@ import org.locationtech.jts.io.ParseException;
 import org.locationtech.jts.io.WKTReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,12 +24,15 @@ import java.util.Optional;
 @Component
 public class UploadService {
 
-    @Autowired
-    private AgencyRepository agencyRepository;
-    @Autowired
-    private TripPatternRepository tripPatternRepository;
+    private final AgencyRepository agencyRepository;
+    private final TripPatternRepository tripPatternRepository;
 
     Logger logger = LoggerFactory.getLogger(UploadService.class);
+
+    public UploadService(AgencyRepository agencyRepository, TripPatternRepository tripPatternRepository) {
+        this.agencyRepository = agencyRepository;
+        this.tripPatternRepository = tripPatternRepository;
+    }
 
     public boolean uploadRoutes(MultipartFile data, Phone phone) {
         try {
