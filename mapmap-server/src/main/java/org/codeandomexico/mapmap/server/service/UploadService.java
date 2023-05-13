@@ -49,7 +49,10 @@ public class UploadService {
             for (TransitWandProtos.Upload.Route r : upload.getRouteList()) {
                 if (r.getPointList().size() <= 1) continue;
                 Optional<Agency> agency = agencyRepository.findById(1L); // Esto es un parche. Solo hay una agencia en toda la BBDD.
-                if (agency.isEmpty()) continue;
+                if (agency.isEmpty()) {
+                    logger.error("No existe la agencia en la BBDD");
+                    return false;
+                }
 
                 Route route = new Route("", r.getRouteName().toUpperCase(), RouteType.BUS, r.getRouteDescription().toUpperCase(), agency.get());
                 route.phone = phone;
