@@ -50,7 +50,7 @@ public class ExportService {
             processStopsShapefile(tempDirectory, timestamp, tripPatterns);
             processRoutesShepfile(tempDirectory, timestamp, tripPatterns);
             File tempFile = Files.createTempFile(timestamp, "_SHP.zip").toFile();
-            DirectoryZip.zip(tempDirectory, tempFile);
+            DirectoryZip.zip(tempDirectory.getAbsolutePath(), tempFile.getAbsolutePath());
             return Optional.of(tempFile);
         } catch (IOException | SchemaException e) {
             logger.error("No se pudo generar el fichero Shapefile de exportación.");
@@ -111,7 +111,7 @@ public class ExportService {
             stopsCsvWriter.close();
 
             File tempFile = Files.createTempFile(timestamp, "_CSV.zip").toFile();
-            DirectoryZip.zip(tempDirectory, tempFile);
+            DirectoryZip.zip(tempDirectory.getAbsolutePath(), tempFile.getAbsolutePath());
             return Optional.of(tempFile);
         } catch (IOException e) {
             logger.error("No se pudo generar el fichero CSV de exportación.");
