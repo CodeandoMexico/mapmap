@@ -32,11 +32,11 @@ public class UploadController {
 
         Optional<Phone> phone = mainService.loadPhone(imei);
         if (phone.isEmpty()) {
-            response.sendError(HttpStatus.BAD_REQUEST.value());
+            response.sendError(HttpStatus.BAD_REQUEST.value(), "No existe un telefono con ese ID");
             return;
         }
         if (uploadService.uploadRoutes(data, phone.get())) {
-            response.sendError(HttpStatus.OK.value());
+            response.setStatus(HttpStatus.OK.value());
             return;
         }
         response.sendError(HttpStatus.BAD_REQUEST.value());
