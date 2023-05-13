@@ -20,7 +20,8 @@
         android:theme="@android:style/Theme.NoTitleBar">
 
 
-        <service android:name="org.codeandomexico.mapmap.CaptureService">
+        <service android:name="org.codeandomexico.mapmap.CaptureService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="codeandoxalapa.org.mapmap.CaptureService" />
             </intent-filter>
@@ -29,7 +30,8 @@
 
         <activity
             android:name="org.codeandomexico.mapmap.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
