@@ -67,9 +67,9 @@ La aplicación de servidor sirve para:
 
 ### Tecnología
 
-* Java 11+
+* Java 17+
 * Spring Boot 3
-* IntelliJ IDEA Community Edition o Visual Studio Code (Metals)
+* IntelliJ IDEA o Visual Studio Code (Metals)
 
 
 ## Metodología
