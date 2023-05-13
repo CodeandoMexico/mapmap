@@ -83,7 +83,7 @@ public class APIController {
     @GetMapping(path = "/pattern", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public ResponseEntity<String> pattern(
-            @RequestParam(name = "patternId", required = true, defaultValue = "0") Long patternId
+            @RequestParam(name = "patternId", defaultValue = "0") Long patternId
     ) {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("Access-Control-Allow-Origin", "*");
