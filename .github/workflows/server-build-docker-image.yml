@@ -1,46 +1,22 @@
-name: Build Server Docker Image and Publish
+name: MapMap Server Docker Image for Production
 
 on:
-    workflow_dispatch
+  workflow_dispatch
 
 jobs:
-    package-server-app:
-        runs-on: ubuntu-22.04
-        permissions:
-          contents: read
-          packages: write
-        environment: production
-        if: github.ref == 'refs/heads/main'
+  docker-image-production:
+    runs-on: ubuntu-latest
+    environment: production
+    if: github.ref == 'refs/heads/main'
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
+    steps:
+      - uses: actions/checkout@v2
 
-            - name: Setup Java
-              uses: actions/setup-java@v3
-              with:
-                java-version: 17
-                distribution: 'temurin'
-                cache: maven
-                server-id: github
-                settings-path: ${{ github.workspace }}
-
-            - name: Setup Maven
-              uses: stCarolas/setup-maven@v4.5
-              with:
-                maven-version: 3.8.2
-
-            - name: Package Jar
-              run: mvn -f mapmap-server/pom.xml package -Dmaven.test.skip
-            
-            - name: Deploy to GitHub
-              run: mvn -f mapmap-server/pom.xml deploy --batch-mode -DuseGitHubPackages=true -Dmaven.test.skip
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            
-            - name: Upload Artifacts
-              uses: actions/upload-artifact@v3
-              with:
-                name: mapmap-server
-                path: mapmap-server/target/*.jar
-                
+      - name: Build Docker Image
+        uses: VaultVulp/gp-docker-action@1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          image-name: production
+          image-tag: latest
+          dockerfile: docker/Dockerfile
+          build-context: .
