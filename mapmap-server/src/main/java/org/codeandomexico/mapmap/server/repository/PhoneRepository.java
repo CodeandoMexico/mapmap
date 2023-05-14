@@ -12,6 +12,8 @@ public interface PhoneRepository extends CrudRepository<Phone, Long> {
 
     Optional<Phone> findByImei(String imei);
 
+    Optional<Phone> findFirst1ByImei(String imei);
+
     Optional<Phone> findByUnitId(String unitId);
 
     long countByUnitId(String unitId);

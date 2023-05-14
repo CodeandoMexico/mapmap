@@ -31,7 +31,7 @@ public class MainService {
             return Optional.empty();
         }
 
-        Optional<Phone> phone = phoneRepository.findByImei(imei);
+        Optional<Phone> phone = phoneRepository.findFirst1ByImei(imei);
         if (phone.isPresent()) {
             return phone;
         }
