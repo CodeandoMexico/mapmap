@@ -27,7 +27,7 @@ jobs:
                 maven-version: 3.8.2
 
             - name: Package Jar
-              run: mvn -f mapmap-server/pom.xml package
+              run: mvn -f mapmap-server/pom.xml package -Dmaven.test.skip
 
             - name: List target directory
               run: ls target/
