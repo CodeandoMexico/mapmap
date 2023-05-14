@@ -22,13 +22,13 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
+        server-id: github
+        settings-path: ${{ github.workspace }}/mapmap-server # location for the settings.xml file
 
     - name: Build with Maven
       run: mvn -B package --file mapmap-server/pom.xml -Dmaven.test.skip
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml -Dmaven.test.skip
+      run: mvn deploy --file mapmap-server/pom.xml -s $GITHUB_WORKSPACE/mapmap-server/settings.xml -Dmaven.test.skip
       env:
         GITHUB_TOKEN: ${{ github.token }}
