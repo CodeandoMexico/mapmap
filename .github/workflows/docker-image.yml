@@ -30,18 +30,15 @@ jobs:
 
             - name: Package Jar
               run: mvn -f mapmap-server/pom.xml package -Dmaven.test.skip
-              
-            - name: Copy Jars to artifacts folder
-              run: mkdir artifacts && cp mapmap-server/target/mapmap-server-0.0.1-SNAPSHOT.jar artifacts/mapmap-server-${{ github.sha }}.jar
             
             - name: Upload Artifacts
               uses: actions/upload-artifact@v3
               with:
-                name: Package
-                path: artifacts
+                name: mapmap-server
+                path: mapmap-server/target/*.jar
                 
             - name: Publish to GitHub Packages Apache Maven
-              run: mvn deploy -DaltDeploymentRepository=local::file:./artifacts
+              run: mvn -f mapmap-server/pom.xml deploy
               env:
                 GITHUB_USERNAME: x-access-token
                 GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
