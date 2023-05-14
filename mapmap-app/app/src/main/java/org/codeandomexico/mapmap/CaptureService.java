@@ -336,11 +336,15 @@ public class CaptureService extends Service {
     }
 
     private void showNotificationTray() {
-        Intent contentIntent = new Intent(this, CaptureActivity.class);
-        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pending = PendingIntent.getActivity(getApplicationContext(), 0, contentIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        Notification notification = new Notification(R.drawable.tray_icon, null, System.currentTimeMillis());
-        notification.flags |= Notification.FLAG_ONGOING_EVENT;
-        notification.setLatestEventInfo(getApplicationContext(), "MapMap", "", pending);
+        final Intent contentIntent = new Intent(this, CaptureActivity.class);
+        PendingIntent pending = PendingIntent.getActivity(getApplicationContext(), 0, contentIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        Notification notification = new Notification.Builder(getApplicationContext())
+                .setOngoing(true)
+                .setWhen(System.currentTimeMillis())
+                .setContentIntent(pending)
+                .setSmallIcon(R.drawable.tray_icon)
+                .build();
         gpsNotificationManager.notify(NOTIFICATION_ID, notification);
         startForeground(NOTIFICATION_ID, notification);
     }
