@@ -22,9 +22,9 @@ jobs:
                 distribution: 'temurin'
 
             - name: Setup Maven
-              uses: stCarolas/setup-maven@4.5
+              uses: stCarolas/setup-maven@v4.5
               with:
-                maven-version: 3.9.2
+                maven-version: 3.8.2
 
             - name: Package Jar
               run: mvn package
