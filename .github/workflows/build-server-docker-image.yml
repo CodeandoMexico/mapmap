@@ -5,7 +5,7 @@ on:
 
 jobs:
   package-server-jar:
-    uses: CodeandoMexico/mapmap/.github/workflows/server-buil-jar.yml@main
+    uses: CodeandoMexico/mapmap/.github/workflows/build-server-jar.yml@main
     
   docker-image-production:
     runs-on: ubuntu-latest
