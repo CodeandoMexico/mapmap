@@ -22,7 +22,7 @@ jobs:
                 distribution: 'temurin'
 
             - name: Setup Maven
-              uses: stCarolas/setup-maven@4.4
+              uses: stCarolas/setup-maven@4.5
               with:
                 maven-version: 3.9.2
 
