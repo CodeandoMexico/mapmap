@@ -1,5 +1,4 @@
-# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
-# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+# This workflow buils mapmap-server JAR files and publish them. Also upload the artifact so other actions can use it.
 
 name: Maven Package
 
@@ -21,9 +20,10 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        cache: maven
         server-id: github
-        settings-path: ${{ github.workspace }}/mapmap-server # location for the settings.xml file
-
+        settings-path: ${{ github.workspace }}/mapmap-server
+        
     - name: Build with Maven
       run: mvn -B package --file mapmap-server/pom.xml -Dmaven.test.skip
 
@@ -31,3 +31,9 @@ jobs:
       run: mvn deploy --file mapmap-server/pom.xml -s $GITHUB_WORKSPACE/mapmap-server/settings.xml -Dmaven.test.skip
       env:
         GITHUB_TOKEN: ${{ github.token }}
+        
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: mapmap-server
+        path: mapmap-server/target/*.jar
