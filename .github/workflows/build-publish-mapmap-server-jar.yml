@@ -1,6 +1,6 @@
 # This workflow buils mapmap-server JAR files and publish them. Also upload the artifact so other actions can use it.
 
-name: Maven Build Package and Publish
+name: Build MapMap Server Package and Publish JAR
 
 on:
     workflow_dispatch
