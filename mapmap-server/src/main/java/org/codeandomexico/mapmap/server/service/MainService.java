@@ -18,9 +18,9 @@ public class MainService {
     }
 
     public Optional<Phone> loadPhone(String imei) {
-        Optional<Phone> phone = phoneRepository.findByImei(imei);
+        Optional<Phone> phone = phoneRepository.findFirstByImei(imei);
         if (phone.isEmpty()) {
-            return phoneRepository.findByUnitId(imei);
+            return phoneRepository.findFirstByUnitId(imei);
         }
         return phone;
     }
@@ -31,7 +31,7 @@ public class MainService {
             return Optional.empty();
         }
 
-        Optional<Phone> phone = phoneRepository.findFirst1ByImei(imei);
+        Optional<Phone> phone = phoneRepository.findFirstByImei(imei);
         if (phone.isPresent()) {
             return phone;
         }
