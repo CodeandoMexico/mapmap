@@ -26,11 +26,8 @@ jobs:
               with:
                 maven-version: 3.8.2
 
-            - name: Change to mapmap-server directory
-              run: cd mapmap-server
-
             - name: Package Jar
-              run: mvn package
+              run: mvn -f mapmap-server/pom.xml package
 
             - name: List target directory
               run: ls target/
