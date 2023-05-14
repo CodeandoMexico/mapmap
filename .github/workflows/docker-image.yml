@@ -37,7 +37,7 @@ jobs:
               run: mvn -f mapmap-server/pom.xml package -Dmaven.test.skip
             
             - name: Deploy to GitHub
-              run: mvn --batch-mode -DuseGitHubPackages=true deploy -Dmaven.test.skip
+              run: mvn -f mapmap-server/pom.xml deploy --batch-mode -DuseGitHubPackages=true -Dmaven.test.skip
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
