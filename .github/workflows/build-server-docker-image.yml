@@ -1,9 +1,12 @@
-name: MapMap Server Docker Image for Production
+name: Build Server Docker Image
 
 on:
   workflow_dispatch
 
 jobs:
+  package-server-jar:
+    uses: CodeandoMexico/mapmap/.github/workflows/server-buil-jar.yml@main
+    
   docker-image-production:
     runs-on: ubuntu-latest
     environment: production
