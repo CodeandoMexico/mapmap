@@ -38,7 +38,7 @@ jobs:
                 path: mapmap-server/target/*.jar
                 
             - name: Publish to GitHub Packages Apache Maven
-              run: mvn -f mapmap-server/pom.xml deploy
+              run: mvn -f mapmap-server/pom.xml deploy -Dmaven.test.skip
               env:
                 GITHUB_USERNAME: x-access-token
                 GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
