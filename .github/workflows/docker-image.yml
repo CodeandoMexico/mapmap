@@ -42,14 +42,8 @@ jobs:
             - name: Setup Maven settings.xml
               uses: whelk-io/maven-settings-xml-action@v11
               with:
-              servers:
-                '[
-                  {
-                    "id": "github",
-                    "username": "${env.GITHUB_USERNAME}",
-                    "password": "${env.GITHUB_TOKEN}"
-                  }
-                ]'
+                servers:
+                  '[{"id": "github","username": "${env.GITHUB_USERNAME}","password": "${env.GITHUB_TOKEN}"}]'
 
                 
             - name: Publish to GitHub Packages Apache Maven
