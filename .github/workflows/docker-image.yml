@@ -22,6 +22,8 @@ jobs:
                 java-version: 17
                 distribution: 'temurin'
                 cache: maven
+                server-id: github
+                settings-path: ${{ github.workspace }}
 
             - name: Setup Maven
               uses: stCarolas/setup-maven@v4.5
@@ -36,6 +38,19 @@ jobs:
               with:
                 name: mapmap-server
                 path: mapmap-server/target/*.jar
+                
+            - name: Setup Maven settings.xml
+              uses: whelk-io/maven-settings-xml-action@v11
+              with:
+              servers:
+                '[
+                  {
+                    "id": "github",
+                    "username": "${env.GITHUB_USERNAME}",
+                    "password": "${env.GITHUB_TOKEN}"
+                  }
+                ]'
+
                 
             - name: Publish to GitHub Packages Apache Maven
               run: mvn -f mapmap-server/pom.xml deploy -Dmaven.test.skip
