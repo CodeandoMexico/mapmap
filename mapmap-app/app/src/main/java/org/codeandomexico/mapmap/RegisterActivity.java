@@ -71,22 +71,22 @@ public class RegisterActivity extends Activity {
                 params.put("userName", userName);
 
                 AsyncHttpClient client = new AsyncHttpClient();
+                client.setTimeout(10 * 1000);
                 client.setUserAgent("tw");
                 client.get(CaptureService.URL_BASE + "register", params, new JsonHttpResponseHandler() {
 
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
                         try {
-                            String unitId = response.getString("unitId");
                             Toast.makeText(RegisterActivity.this, "Teléfono Registrado", Toast.LENGTH_SHORT).show();
-
                             SharedPreferences prefsManager = PreferenceManager.getDefaultSharedPreferences(RegisterActivity.this);
-                            prefsManager.edit().putBoolean("registered", true).putString("unitId", unitId).putString("userName", userName).apply();
-
+                            prefsManager.edit()
+                                    .putBoolean("registered", true)
+                                    .putString("unitId", response.getString("unitId"))
+                                    .putString("userName", response.getString("userName"))
+                                    .apply();
                             Intent uploadIntent = new Intent(RegisterActivity.this, UploadActivity.class);
                             startActivity(uploadIntent);
-
                             RegisterActivity.this.finish();
                         } catch (Exception e) {
                             Toast.makeText(RegisterActivity.this, "No se ha podido registrar el teléfono", Toast.LENGTH_SHORT).show();
