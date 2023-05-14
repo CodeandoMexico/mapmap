@@ -41,7 +41,7 @@ jobs:
                 path: artifacts
                 
             - name: Publish to GitHub Packages Apache Maven
-              run: mvn deploy
+              run: mvn deploy -DaltDeploymentRepository=local::file:./artifacts
               env:
                 GITHUB_USERNAME: x-access-token
                 GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
