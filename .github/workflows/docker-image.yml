@@ -36,22 +36,14 @@ jobs:
             - name: Package Jar
               run: mvn -f mapmap-server/pom.xml package -Dmaven.test.skip
             
+            - name: Deploy to GitHub
+              run: mvn --batch-mode -DuseGitHubPackages=true deploy -Dmaven.test.skip
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            
             - name: Upload Artifacts
               uses: actions/upload-artifact@v3
               with:
                 name: mapmap-server
                 path: mapmap-server/target/*.jar
                 
-            - name: Setup Maven settings.xml
-              uses: whelk-io/maven-settings-xml-action@v20
-              with:
-                output_file: mapmap-server/settings.xml
-                servers:
-                  '[{"id": "github","username": "${secrets.GITHUB_USERNAME}","password": "${secrets.GITHUB_TOKEN}"}]'
-                
-            - name: Publish to GitHub Packages 
-              run: mvn deploy:deploy-file -Dfile=./[JAR].jar 
-                -DpomFile=mapmap-server/pom.xml 
-                -DrepositoryId=github 
-                -Durl=https://maven.pkg.github.com/CodeandoMexico/mapamap
-                -Dtoken=${secrets.GITHUB_TOKEN}
