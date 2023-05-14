@@ -1,4 +1,4 @@
-name: Build MapMap Server Docker Image and Publish
+name: Build Server Docker Image and Publish
 
 on:
     workflow_dispatch
