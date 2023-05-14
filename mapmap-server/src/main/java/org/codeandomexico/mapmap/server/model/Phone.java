@@ -13,7 +13,9 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate")
     @SequenceGenerator(name = "hibernate", sequenceName = "hibernate_sequence", allocationSize = 1)
     public Long id;
+    @Column(unique = true)
     public String imei;
+    @Column(unique=true)
     public String unitId;
     public String userName;
     public Date registeredOn;
