@@ -20,6 +20,7 @@ jobs:
               with:
                 java-version: 17
                 distribution: 'temurin'
+                cache: maven
 
             - name: Setup Maven
               uses: stCarolas/setup-maven@v4.5
@@ -30,5 +31,5 @@ jobs:
               run: mvn -f mapmap-server/pom.xml package -Dmaven.test.skip
 
             - name: List target directory
-              run: ls target/
+              run: ls -la mapmap-server/target
 
