@@ -2,7 +2,7 @@ FROM eclipse-temurin:17
 
 LABEL org.opencontainers.image.source="https://github.com/codeandomexico/mapmap"
 
-ENV DATABASE_URL jdbc:postgresql://localhost/mapmap
+ENV DATABASE_URL jdbc:postgresql://postgres/mapmap
 ENV DATABASE_USER postgres
 ENV DATABASE_PASSWORD postgres
 ENV LOGGIN_LEVEL INFO
