@@ -9,6 +9,9 @@ on:
 jobs:
     package-server-app:
         runs-on: ubuntu-22.04
+        permissions:
+          contents: read
+          packages: write
         environment: production
         if: github.ref == 'refs/heads/main'
 
@@ -40,15 +43,15 @@ jobs:
                 path: mapmap-server/target/*.jar
                 
             - name: Setup Maven settings.xml
-              uses: whelk-io/maven-settings-xml-action@v11
+              uses: whelk-io/maven-settings-xml-action@v20
               with:
+                output_file: mapmap-server/settings.xml
                 servers:
                   '[{"id": "github","username": "${env.GITHUB_USERNAME}","password": "${env.GITHUB_TOKEN}"}]'
-
                 
-            - name: Publish to GitHub Packages Apache Maven
-              run: mvn -f mapmap-server/pom.xml deploy -Dmaven.test.skip
-              env:
-                GITHUB_USERNAME: x-access-token
-                GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-                BUILD_ENV: 'github-actions'
+            - name: Publish to GitHub Packages 
+              run: mvn deploy:deploy-file -Dfile=./[JAR].jar 
+                -DpomFile=mapmap-server/pom.xml 
+                -DrepositoryId=github 
+                -Durl=https://maven.pkg.github.com/CodeandoMexico/mapamap
+                -Dtoken=${env.GITHUB_TOKEN}
