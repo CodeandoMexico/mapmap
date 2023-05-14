@@ -30,7 +30,12 @@ jobs:
 
             - name: Package Jar
               run: mvn -f mapmap-server/pom.xml package -Dmaven.test.skip
-
-            - name: List target directory
-              run: ls -la mapmap-server/target
-
+              
+            - name: Copy Jars to artifacts folder
+              run: mkdir artifacts && cp mapmap-server/target/mapmap-server-0.0.1-SNAPSHOT.jar artifacts/mapmap-server-${{ github.sha }}.jar
+            
+            - name: Upload Artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                name: Package
+                path: artifacts
