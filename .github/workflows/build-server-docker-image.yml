@@ -16,9 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@v2
+      - name: Restore cached JAR
+        id: cache-primes-restore
+        uses: actions/cache/restore@v3
         with:
-          name: mapmap-server-jar
+          path: mapmap-server.jar
+          key: mapmap-server-jar
 
       - name: Build Docker Image
         uses: VaultVulp/gp-docker-action@1.2.0
