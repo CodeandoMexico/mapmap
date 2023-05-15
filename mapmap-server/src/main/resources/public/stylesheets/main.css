@@ -1,17 +1,29 @@
 body {
 	padding: 0px;
-	background-image:url('../images/background.png');
+	background-image: url('../images/mapaton-bg.png');
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: top center;
+	background-position: center;
 }
 
 #content {
 	padding: 0px;
-	margin-top: 40px;
+	height: 100vh;
+}
+
+.jumbotron {
+	background: white;
+	padding: 50px;
+	width: 60%;
+	margin: 20% auto;
+
+	box-shadow: 10px 2px 18px -6px rgba(0, 0, 0, 0.46);
+	-webkit-box-shadow: 10px 2px 18px -6px rgba(0, 0, 0, 0.46);
+	-moz-box-shadow: 10px 2px 18px -6px rgba(0, 0, 0, 0.46);
+	border-radius: 5px;
 }
 
 #map {
