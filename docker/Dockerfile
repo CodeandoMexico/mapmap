@@ -1,3 +1,6 @@
+# Este fichero se usa para generar la imagen de Docker de produccion usando GitHub Actions
+# https://github.com/CodeandoMexico/mapmap/blob/main/.github/workflows/build-server-docker-image.yml
+
 FROM eclipse-temurin:17
 
 LABEL org.opencontainers.image.source="https://github.com/codeandomexico/mapmap"

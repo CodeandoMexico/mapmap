@@ -19,6 +19,7 @@ MapMap es un kit de código abierto para el mapeo de rutas de transporte públic
     - [Tecnología](#tecnología)
   - [Aplicación de servidor](#aplicación-de-servidor)
     - [Tecnología](#tecnología-1)
+  - [Instalación](#instalación)
   - [Metodología](#metodología)
   - [Autores:](#autores)
     - [Codeando Xalapa](#codeando-xalapa)
@@ -71,6 +72,14 @@ La aplicación de servidor sirve para:
 * Spring Boot 3
 * IntelliJ IDEA o Visual Studio Code (Metals)
 
+## Instalación
+
+El proyecto se puede instalar:
+
+* De manera manual
+* Usando Docker
+
+Más información en el [documento de instalación](docs/instalacion.md)
 
 ## Metodología
 
