@@ -63,7 +63,7 @@ Se recomienda Android Studio como IDE para el desarrollo.
 
 ### Instalación de la app móvil
 
-La [última versión de la aplicación móvil](https://github.com/CodeandoMexico/mapmap/blob/bea4fab344db3058b896c842796012149ad7263a/releases/app-debug.apk) se encuentra en la carpeta releases.
+La [última versión de la aplicación móvil](https://github.com/CodeandoMexico/mapmap/releases/tag/v1.1.0) se encuentra en la página de releases.
 
 La aplicación se creó para el Android SDK 21, y en versiones modernas de Android al intentar instalarla puede dar aviso de que no es recomendable instalarla. Esta app apunta directamente a los servidores de Codeando México.
 
