@@ -99,7 +99,11 @@ DATABASE_PASSWORD=postgres
 LOGGIN_LEVEL=INFO
 POSTGRES_PASSWORD=postgres
 
-3. Crear un fichero de Docker Compose
+3A. Crear una imagen de Docker
+
+Usando como referencia el fichero docker/Dockerfile crear una imagen del servidor
+
+3B. Crear un fichero de Docker Compose
 
 > touch docker-compose.yml
 
@@ -112,6 +116,7 @@ En la carpeta docker hay un fichero de ejemplo de Docker Compose
 Mientras está corriendo, copiar los ficheros SQL al contenedor de Postgres
 
 > docker cp ./schema.sql XXX:/schema.sql
+
 > docker cp ./data.sql XXX:/data.sql
 
 Siendo XXX el ID del contenedor de Postgres. Este se puede obtener ejecutando 'docker ps'.
