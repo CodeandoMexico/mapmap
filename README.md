@@ -64,7 +64,13 @@ Mediante la aplicación móvil es posible capturar trazos georeferenciados sin l
 
 La [última versión de la aplicación móvil](https://github.com/CodeandoMexico/mapmap/blob/bea4fab344db3058b896c842796012149ad7263a/releases/app-debug.apk) se encuentra en la carpeta releases.
 
-La aplicación se creó para el Android SDK 21, y en versiones modernas de Android al intentar instalarla puede dar aviso de que no es recomendable instalarla.
+La aplicación se creó para el Android SDK 21, y en versiones modernas de Android al intentar instalarla puede dar aviso de que no es recomendable instalarla. Esta app apunta directamente a los servidores de Codeando México.
+
+Si realizas una instalación de tu propia instancia de MapMap Server, es necesario configurar la App Android para apuntar a tu servidor y recompilar el APK.
+
+Esto lo puedes realizar en el fichero:
+
+mapmap-app/app/src/main/java/CaptureService.java en la linea 38.
 
 ## Aplicación de servidor
 
