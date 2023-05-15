@@ -54,6 +54,8 @@ Mediante la aplicación móvil es posible capturar trazos georeferenciados sin l
 - Tiempo inicial y final del recorrido.
 - Fotografía del transporte público que realiza la ruta.
 
+![App móvil](/docs/images/captura-app.jpg)
+
 ### Tecnología
 
 * Android 5.0 (sdk 21)
