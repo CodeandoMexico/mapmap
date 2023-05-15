@@ -9,6 +9,6 @@ ENV LOGGIN_LEVEL INFO
 
 WORKDIR /mapmap-server
 
-COPY mapmap-server/target/*.jar mapmap-server.jar
+COPY mapmap-server/target/*.jar .
 
 ENTRYPOINT ["java","-jar","/mapmap-server/mapmap-server.jar", "--spring.datasource.url='${DATABASE_URL}'", "--spring.datasource.username='${DATABASE_USER}'", "--spring.datasource.password='${DATABASE_PASSWORD}'", "--logging.level.root='${LOGGIN_LEVEL}'"]
