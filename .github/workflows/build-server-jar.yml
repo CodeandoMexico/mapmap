@@ -31,9 +31,14 @@ jobs:
       run: mvn deploy --file mapmap-server/pom.xml -s $GITHUB_WORKSPACE/mapmap-server/settings.xml -Dmaven.test.skip
       env:
         GITHUB_TOKEN: ${{ github.token }}
-        
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v3
+    
+    - name: Rename JAR
+      run: |
+        mv "mapmap-server/target/mapmap-server-0.0.1-SNAPSHOT.jar" "mapmap-server.jar"
+    
+    - name: Cache JAR
+      id: cache-jar
+      uses: actions/cache@v3
       with:
-        name: mapmap-server-jar
-        path: mapmap-server/target/*.jar
+        path: mapmap-server.jar
+        key: mapmap-server-jar
