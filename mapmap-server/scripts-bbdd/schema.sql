@@ -3,7 +3,6 @@
 --
 
 -- Dumped from database version 15.3
--- Dumped by pg_dump version 15.3 (Homebrew)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -15,6 +14,13 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
+
+
+CREATE DATABASE "mapmap"
+    WITH OWNER "postgres"
+    ENCODING 'UTF8';
+
+\c mapmap
 
 --
 -- Name: postgis; Type: EXTENSION; Schema: -; Owner: -
@@ -338,10 +344,6 @@ REVOKE ALL ON SCHEMA public FROM postgres;
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
-
--- Completed on 2023-01-17 21:29:42 CST
-
 --
 -- PostgreSQL database dump complete
 --
-
