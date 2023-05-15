@@ -80,6 +80,9 @@ La aplicación de servidor sirve para:
 * Visualizar las rutas en un mapa web
 * Descargar las rutas en formatos Shapefile y CSV
 
+![Página de inicio](/docs/images/captura-pagina-inicio.png)
+![Página de mapa](/docs/images/captura-pagina-mapa.png)
+
 ### Tecnología
 
 * Java 17+
