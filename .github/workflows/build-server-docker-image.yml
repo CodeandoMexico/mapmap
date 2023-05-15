@@ -16,6 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions/download-artifact@v2
+        with:
+          name: mapmap-server-jar
+
       - name: Build Docker Image
         uses: VaultVulp/gp-docker-action@1.2.0
         with:
