@@ -58,7 +58,8 @@ Mediante la aplicación móvil es posible capturar trazos georeferenciados sin l
 
 * Android 5.0 (sdk 21)
 * Java 8+
-* Android Studio (recomendado)
+
+Se recomienda Android Studio como IDE para el desarrollo.
 
 ### Instalación de la app móvil
 
@@ -83,7 +84,8 @@ La aplicación de servidor sirve para:
 
 * Java 17+
 * Spring Boot 3
-* IntelliJ IDEA o Visual Studio Code (Metals)
+
+Se recomienda IntelliJ IDEA o Visual Studio Code (Metals) para el desarrollo.
 
 ### Instalación de la aplicación de servidor
 
