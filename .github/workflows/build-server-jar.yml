@@ -6,7 +6,7 @@ on:
     workflow_call
     
 jobs:
-  build:
+  build-jar:
 
     runs-on: ubuntu-latest
     permissions:
