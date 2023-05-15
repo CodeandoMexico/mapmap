@@ -28,6 +28,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           image-name: production
-          image-tag: ${{ git.sha }}
+          image-tag: ${{ github.sha }}
           dockerfile: docker/Dockerfile
           build-context: .
