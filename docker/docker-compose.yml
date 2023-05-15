@@ -1,0 +1,24 @@
+version: '3'
+services:
+  # ------------------------------
+  # MapMap Server
+  mapmap-server:
+    image: ghcr.io/codeandomexico/mapmap/production:latest
+    restart: always
+    ports:
+      - '80:8080'
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+  # ------------------------------
+  # Postgres + PostGIS
+  postgres:
+    image: postgis/postgis:15-3.3
+    restart: always
+    ports:
+      - '5433:5432'
+    env_file:
+      - .env
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
