@@ -17,9 +17,10 @@ MapMap es un kit de código abierto para el mapeo de rutas de transporte públic
   - [Descripción](#descripción)
   - [Aplicación móvil](#aplicación-móvil)
     - [Tecnología](#tecnología)
+    - [Instalación de la app móvil](#instalación-de-la-app-móvil)
   - [Aplicación de servidor](#aplicación-de-servidor)
     - [Tecnología](#tecnología-1)
-  - [Instalación](#instalación)
+    - [Instalación de la aplicación de servidor](#instalación-de-la-aplicación-de-servidor)
   - [Metodología](#metodología)
   - [Autores:](#autores)
     - [Codeando Xalapa](#codeando-xalapa)
@@ -59,6 +60,12 @@ Mediante la aplicación móvil es posible capturar trazos georeferenciados sin l
 * Java 8+
 * Android Studio (recomendado)
 
+### Instalación de la app móvil
+
+La [última versión de la aplicación móvil](https://github.com/CodeandoMexico/mapmap/blob/bea4fab344db3058b896c842796012149ad7263a/releases/app-debug.apk) se encuentra en la carpeta releases.
+
+La aplicación se creó para el Android SDK 21, y en versiones modernas de Android al intentar instalarla puede dar aviso de que no es recomendable instalarla.
+
 ## Aplicación de servidor
 
 La aplicación de servidor sirve para:
@@ -72,7 +79,7 @@ La aplicación de servidor sirve para:
 * Spring Boot 3
 * IntelliJ IDEA o Visual Studio Code (Metals)
 
-## Instalación
+### Instalación de la aplicación de servidor
 
 El proyecto se puede instalar:
 
