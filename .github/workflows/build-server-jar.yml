@@ -35,5 +35,5 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: mapmap-server
+        name: mapmap-server-jar
         path: mapmap-server/target/*.jar
