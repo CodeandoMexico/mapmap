@@ -4,7 +4,7 @@ name: Build Server JAR
 
 on:
     workflow_call
-    
+
 jobs:
   build-jar:
 
@@ -23,7 +23,7 @@ jobs:
         cache: maven
         server-id: github
         settings-path: ${{ github.workspace }}/mapmap-server
-        
+
     - name: Build with Maven
       run: mvn -B package --file mapmap-server/pom.xml -Dmaven.test.skip
 
@@ -31,11 +31,11 @@ jobs:
       run: mvn deploy --file mapmap-server/pom.xml -s $GITHUB_WORKSPACE/mapmap-server/settings.xml -Dmaven.test.skip
       env:
         GITHUB_TOKEN: ${{ github.token }}
-    
+
     - name: Rename JAR
       run: |
         mv "mapmap-server/target/mapmap-server-0.0.1-SNAPSHOT.jar" "mapmap-server.jar"
-    
+
     - name: Cache JAR
       id: cache-jar
       uses: actions/cache@v3

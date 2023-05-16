@@ -33,7 +33,7 @@ En la carpeta mapmap-server/scripts-bbdd hay dos scripts de SQL:
 Versiones:
     * Java 17+
     * Maven 3.9.1+
-    *
+
 En este documento no se explica como instalar esto.
 
 5. Descargar el código del proyecto
