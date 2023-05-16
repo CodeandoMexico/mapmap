@@ -15,27 +15,6 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-
-CREATE DATABASE "mapmap"
-    WITH OWNER "postgres"
-    ENCODING 'UTF8';
-
-\c mapmap
-
---
--- Name: postgis; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
-
-
---
--- Name: EXTENSION postgis; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION postgis IS 'PostGIS geometry and geography spatial types and functions';
-
-
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -325,24 +304,6 @@ ALTER TABLE ONLY public.route
 ALTER TABLE ONLY public.route
     ADD CONSTRAINT fkpjyc40ihe8p6u2y5t0pwo17o3 FOREIGN KEY (agency_id) REFERENCES public.agency(id);
 
-
---
--- PostgreSQL database dump complete
---
-
-
-
-
---
--- TOC entry 4634 (class 0 OID 0)
--- Dependencies: 17
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM postgres;
-GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO PUBLIC;
 
 --
 -- PostgreSQL database dump complete
