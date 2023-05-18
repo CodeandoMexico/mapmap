@@ -73,7 +73,9 @@ Si realizas una instalación de tu propia instancia de MapMap Server, es necesar
 
 Esto lo puedes realizar en el fichero:
 
-mapmap-app/app/src/main/java/CaptureService.java en la linea 38.
+[mapmap-app/app/src/main/java/CaptureService.java](https://github.com/CodeandoMexico/mapmap/blob/main/mapmap-app/app/src/main/java/org/codeandomexico/mapmap/CaptureService.java) en la linea 38
+
+`public final static String SERVER = "mapaton.org/mapmap";`
 
 ## Aplicación de servidor
 

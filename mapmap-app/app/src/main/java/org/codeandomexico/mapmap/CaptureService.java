@@ -35,7 +35,7 @@ import org.codeandomexico.mapmap.TransitWandProtos.Upload;
 
 public class CaptureService extends Service {
 
-    public final static String SERVER = "mapaton.org/mapmap";  // 10.0.2.2:9000;
+    public final static String SERVER = "mapaton.org/mapmap";
     public final static String URL_BASE = "https://" + SERVER + "/";
 
     public static Boolean boundToService = false;

@@ -42,14 +42,16 @@ En este documento no se explica como instalar esto.
 
 6. Configurar la conexión con BBDD
 
-En el fichero mapmap-server/src/main/resources/application.properties se configuran varios aspectos de la aplicación.
+En el fichero [mapmap-server/src/main/resources/application.properties](https://github.com/CodeandoMexico/mapmap/blob/main/mapmap-server/src/main/resources/application.properties) se configuran varios aspectos de la aplicación.
 
-La configuracion de BBDD se define con la variables:
-    * spring.datasource.url
-    * spring.datasource.username
-    * spring.datasource.password
+La configuracion de BBDD se define con las variables:
+```
+spring.datasource.url
+spring.datasource.username
+spring.datasource.password
+```
 
-7. Correr el proyecto
+1. Correr el proyecto
 
 Es necesario asegurarse de que Postgres está corriendo y se han creado correctamente las tablas y se han insertado los datos de los scripts schema.sql y data.sql.
 
@@ -93,11 +95,13 @@ En este documento no se explica como instalar esto.
 
 En la carpeta docker hay un fichero de ejemplo con las variables de entorno que son configurables
 
+```
 DATABASE_URL=jdbc:postgresql://postgres/mapmap
 DATABASE_USER=postgres
 DATABASE_PASSWORD=postgres
 LOGGIN_LEVEL=INFO
 POSTGRES_PASSWORD=postgres
+```
 
 3A. Crear una imagen de Docker
 
@@ -123,8 +127,9 @@ Siendo XXX el ID del contenedor de Postgres. Este se puede obtener ejecutando 'd
 
 Una vez copiados los ficheros al contenedor los ejecutamos dentro de la instancia
 
-docker exec -u postgres XXX psql postgres postgres -f schema.sql
-docker exec -u postgres XXX psql postgres postgres -f data.sql
+> docker exec -u postgres XXX psql postgres postgres -f schema.sql
+
+> docker exec -u postgres XXX psql postgres postgres -f data.sql
 
 Esto dependerá del usuario y contraseña configurado como administrador en Postgres.
 
