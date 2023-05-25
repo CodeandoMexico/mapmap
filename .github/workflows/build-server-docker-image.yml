@@ -6,7 +6,7 @@ on:
 jobs:
   package-server-jar:
     uses: CodeandoMexico/mapmap/.github/workflows/build-server-jar.yml@main
-    
+
   docker-image-production:
     needs: package-server-jar
     runs-on: ubuntu-latest
@@ -28,6 +28,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           image-name: production
-          image-tag: 1.1.1
+          image-tag: 1.1.2
           dockerfile: docker/Dockerfile
           build-context: .
