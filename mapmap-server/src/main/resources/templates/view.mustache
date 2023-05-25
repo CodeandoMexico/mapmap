@@ -14,9 +14,18 @@
 
 	<title>MapMap</title>
 	<script>
-        var defaultLatLon = [19.5421979, -96.9549486];
-        var unitId = '{{phone.unitId}}';
+        const defaultLatLon = [19.5421979, -96.9549486];
+        const unitId = '{{phone.unitId}}';
 	</script>
+    <style>
+        body {
+            background-image: none;
+        }
+        .navbar .brand {
+            padding-left: 40px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,8 +33,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top" id="header">
 	<div class="navbar-inner">
 		<a class="brand" href="https://mapaton.org/mapmap">
-			<img style="margin-left: 10px;width: 25px;" src="images/wand_logo.png"/>&nbsp;&nbsp;Mapatón
-			Ciudadano
+			MapMap
 		</a>
 		<div class="nav-collapse collapse">
 			<div class="btn-group pull-right">
@@ -40,7 +48,7 @@
 					<span class="caret"></span>
 				</a>
 				<ul class="dropdown-menu">
-					<li><a href="/">Cambiar de usuario</a></li>
+					<li><a href="{{contextPath}}">Cambiar de usuario</a></li>
 				</ul>
 			</div>
 		</div>
@@ -80,8 +88,8 @@
 				</select>
 
 				<div style="margin: 10px;" id="patternDetails"></div>
-				<a class="btn" href="/export-csv?unitIds={{phone.unitId}}">Exportar CSV</a>
-				<a class="btn" href="/export-shapefile?unitIds={{phone.unitId}}">Exportar Shapefile</a>
+				<a class="btn" href="export-csv?unitIds={{phone.unitId}}">Exportar CSV</a>
+				<a class="btn" href="export-shapefile?unitIds={{phone.unitId}}">Exportar Shapefile</a>
 
 			</div>
 

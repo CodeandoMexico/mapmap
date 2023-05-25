@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-timepicker.css"/>
     <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="https://mapaton.org/libs/css/style.css">
+
     <link rel="stylesheet" href="stylesheets/main.css"/>
 
     <title>MapMap</title>
-    <script language="JavaScript">
-        var defaultLatLon = [19.5421979, -96.9549486];
+    <script>
+        const defaultLatLon = [19.5421979, -96.9549486];
     </script>
 
 </head>
@@ -39,15 +39,13 @@
             <div class="row">
                 <div class="col-xs-3" style="float: left;display: inline-block;">
                     <a href="https://mapaton.org">
-                        <img class="pull-left" src="images/bus.jpg"
-                             style="width: 182px;"/>
+                        <img class="pull-left" src="images/bus.jpg" style="width: 182px;"/>
                     </a>
                 </div>
                 <div class="col-xs-9" style="float: left;display: inline-block;">
                     <div style="padding-left: 20px;" class="control-group {{#error}}error{{/error}}">
-                        <form id="loginForm" action="/view-unit" method="GET">
-                            <input class="app-input" name="unitId" type="text"
-                                   placeholder="Seis dígitos del id generado en el dispositivo móvil."/>
+                        <form id="loginForm" action="view-unit" method="GET">
+                            <input class="app-input" name="unitId" type="text" placeholder="Introduce el ID de unidad de tu dispositivo móvil"/>
                             {{#error}}
                                 <span class="help-inline" style="margin-bottom: 10px;">
                                     {{error}}
@@ -62,15 +60,16 @@
             <div class="clearfix"></div>
             <br/>
             <p>
-                MapMap es un kit de <a href="https://github.com/codeandomexico/mapmap/" target="_blank">código
+                <b>MapMap</b> es un kit de <a href="https://github.com/codeandomexico/mapmap/" target="_blank">código
                 abierto</a> para mapeo de rutas de transporte público.
             </p>
             <p>
-                Con la <a href="https://github.com/CodeandoMexico/mapmap/releases/download/v1.1.0/app-debug.apk" target="_blank">aplicación móvil</a> es posible capturar datos georeferenciados sobre las rutas y paradas, el número de pasajeros que suben y bajan,
+                Con la <a href="https://github.com/CodeandoMexico/mapmap/releases/download/v1.1.0/app-debug.apk" target="_blank">aplicación móvil</a>
+                es posible capturar datos georeferenciados sobre las rutas y paradas, el número de pasajeros que suben y bajan,
                 asi como el tiempo de recorridos totales y entre paradas.
             </p>
             <p>
-            Estos datos después los puedes sincronizar con el servidor donde podrás consultarlos y exportarlos a CSV o Shapefile.
+                Estos datos después los puedes sincronizar con el servidor donde podrás consultarlos y exportarlos a CSV o Shapefile.
             </p>
 
         </div>

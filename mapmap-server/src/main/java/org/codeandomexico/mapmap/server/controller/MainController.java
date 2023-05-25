@@ -7,6 +7,7 @@ import org.codeandomexico.mapmap.server.repository.TripPatternRepository;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,9 @@ public class MainController {
     private final TripPatternRepository tripPatternRepository;
 
     Logger logger = LoggerFactory.getLogger(MainController.class);
+
+    @Value("${server.servlet.context-path}")
+    private String contextPath;
 
     public MainController(PhoneRepository phoneRepository, TripPatternRepository tripPatternRepository) {
         this.phoneRepository = phoneRepository;
@@ -59,6 +63,9 @@ public class MainController {
         List<TripPattern> tripPatterns = tripPatternRepository.findByRoute_PhoneOrderByIdDesc(phone.get());
         model.addAttribute("phone", phone.get());
         model.addAttribute("tripPatterns", tripPatterns);
+
+        model.addAttribute("contextPath", contextPath);
+
         return "view";
     }
 }
