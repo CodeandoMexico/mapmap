@@ -20,9 +20,10 @@ ENV DATABASE_URL jdbc:postgresql://postgres/mapmap
 ENV DATABASE_USER postgres
 ENV DATABASE_PASSWORD postgres
 ENV LOGGIN_LEVEL INFO
+ENV CONTEXT_PATH  /
 
 WORKDIR /mapmap-server
 
 COPY --from=build /mapmap-server.jar .
 
-ENTRYPOINT java -jar /mapmap-server/mapmap-server.jar --spring.datasource.url='${DATABASE_URL}' --spring.datasource.username='${DATABASE_USER}' --spring.datasource.password='${DATABASE_PASSWORD}' --logging.level.root='${LOGGIN_LEVEL}'
+ENTRYPOINT java -jar /mapmap-server/mapmap-server.jar --spring.datasource.url='${DATABASE_URL}' --spring.datasource.username='${DATABASE_USER}' --spring.datasource.password='${DATABASE_PASSWORD}' --logging.level.root='${LOGGIN_LEVEL}' --server.servlet.context-path='${CONTEXT_PATH}'
