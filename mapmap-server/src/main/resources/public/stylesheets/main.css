@@ -1,6 +1,6 @@
 body {
-	padding: 0px;
-	background-image: url('../images/mapaton-bg.png');
+	padding: 0;
+	background-image: url('../images/map-bg-min.svg');
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -10,15 +10,16 @@ body {
 }
 
 #content {
-	padding: 0px;
 	height: 100vh;
+	width: 100vw;
+	padding: 0;
 }
 
 .jumbotron {
 	background: white;
 	padding: 50px;
-	width: 60%;
-	margin: 20% auto;
+	width: 50%;
+	margin: 30% auto;
 
 	box-shadow: 10px 2px 18px -6px rgba(0, 0, 0, 0.46);
 	-webkit-box-shadow: 10px 2px 18px -6px rgba(0, 0, 0, 0.46);
@@ -27,5 +28,12 @@ body {
 }
 
 #map {
+	padding: 0;
 	width: 100%;
+	height: 100%;
+	margin-top: 40px;
+}
+
+#tripPatternFilter {
+	margin-top: 40px;
 }
